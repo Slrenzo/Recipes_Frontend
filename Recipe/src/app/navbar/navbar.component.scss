@@ -1,0 +1,26 @@
+.navbar {
+  background: #444A8D;
+  height: 45px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-weight: normal;
+    font-size: 25px;
+    color: White;
+    margin-left: 10px;
+  }
+
+  .nav-tabs {
+    display: flex;
+    color: white;
+    align-items: center;
+    gap: 30px;
+    margin-right: 10px;
+  }
+
+}
