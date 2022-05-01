@@ -21,6 +21,17 @@
     align-items: center;
     gap: 30px;
     margin-right: 10px;
-  }
+    font-size: 25px;
 
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .active {
+      text-decoration: underline;
+    }
+  }
 }

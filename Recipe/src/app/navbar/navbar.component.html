@@ -4,7 +4,7 @@
     <span>Cook</span>
   </div>
   <div class="nav-tabs">
-    <span>Ingrédients</span>
-    <span>Recettes</span>
+    <a routerLink="ingredients" routerLinkActive="active">Ingrédients</a>
+    <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Recettes</a>
   </div>
 </div>
