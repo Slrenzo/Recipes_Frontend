@@ -8,6 +8,10 @@ import {HttpClientModule} from "@angular/common/http";
 import {appRoutingModule} from "./app-routing.module";
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { RecipeCardListComponent } from './recipe-card-list/recipe-card-list.component';
+import {TimePipe} from "./pipes/time.pipe";
+import { SingleRecipeComponent } from './single-recipe/single-recipe.component';
+
+
 
 @NgModule({
   declarations: [
@@ -16,7 +20,9 @@ import { RecipeCardListComponent } from './recipe-card-list/recipe-card-list.com
     IngredientCardListComponent,
     NavbarComponent,
     RecipeCardComponent,
-    RecipeCardListComponent
+    RecipeCardListComponent,
+    TimePipe,
+    SingleRecipeComponent
   ],
   imports: [
     BrowserModule,

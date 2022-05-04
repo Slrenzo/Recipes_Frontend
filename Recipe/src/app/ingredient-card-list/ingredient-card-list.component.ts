@@ -15,6 +15,6 @@ export class IngredientCardListComponent implements OnInit {
   constructor(private ingredientCardsService: IngredientCardsService) {  }
 
   ngOnInit(): void {
-    this.ingredientCards$ = this.ingredientCardsService.getAllFaceSnaps();
+    this.ingredientCards$ = this.ingredientCardsService.getAllIngredientCard();
   }
 }

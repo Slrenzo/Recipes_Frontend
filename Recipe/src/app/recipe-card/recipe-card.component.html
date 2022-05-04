@@ -1,9 +1,12 @@
-<div class="recipe-card">
+<div class="recipe-card" (click)="onViewRecipe()">
   <div class="recipe-img">
-    <img src="assets/{{ recipeCard.id_recipe }}.png" alt="{{ recipeCard.name }}">
+    <img src="assets/recipes/{{ recipeCard.id_recipe }}.png" alt="{{ recipeCard.name }}">
   </div>
   <div class="recipe-text">
-    <span>{{ recipeCard.name }}</span>
-    <span>{{ recipeCard.time }}</span>
+    <span class="recipe-name">{{ recipeCard.name }}</span>
+    <div class="recipe-time">
+      <span class="material-symbols-outlined">timer</span>
+      <span>{{ recipeCard.time | time }}</span>
+    </div>
   </div>
 </div>

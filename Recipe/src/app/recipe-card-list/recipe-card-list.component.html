@@ -1,1 +1,3 @@
-<app-recipe-card *ngFor="let recipeCard of recipeCards$ | async" [recipeCard]="recipeCard"></app-recipe-card>
+<div class="child-container">
+  <app-recipe-card *ngFor="let recipeCard of recipeCards$ | async" [recipeCard]="recipeCard"></app-recipe-card>
+</div>

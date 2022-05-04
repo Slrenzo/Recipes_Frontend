@@ -11,7 +11,7 @@ export class RecipeCardsService {
 
   constructor(private http: HttpClient) {}
 
-  getAllFaceSnaps(): Observable<RecipeCard[]> {
+  getAllRecipeCard(): Observable<RecipeCard[]> {
     return this.http.get<RecipeCard[]>('http://localhost:8080/recipes');
   }
 

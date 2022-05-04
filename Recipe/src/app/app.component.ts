@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {IngredientCard} from "./models/ingredient-card.model";
+import {RecipeCard} from "./models/recipe-card.model";
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,6 @@ import {IngredientCard} from "./models/ingredient-card.model";
 })
 export class AppComponent implements OnInit {
 
-  ingredientCards!: IngredientCard[];
   ngOnInit() {
 
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {RecipeCard} from "../models/recipe-card.model";
+import {RecipeCardsService} from "../services/recipe-card.service";
 
 @Component({
   selector: 'app-recipe-card-list',
@@ -11,9 +12,10 @@ export class RecipeCardListComponent implements OnInit {
 
   recipeCards$!: Observable<RecipeCard[]>;
 
-  constructor() { }
+  constructor(private recipeCardsService: RecipeCardsService) { }
 
   ngOnInit(): void {
+    this.recipeCards$ = this.recipeCardsService.getAllRecipeCard();
   }
 
 }
