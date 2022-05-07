@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
+import {filter, map, Observable} from "rxjs";
 import {SingleRecipeService} from "../services/single-recipe.service";
 import {SingleRecipe} from "../models/single-recipe.model";
 import {ActivatedRoute} from "@angular/router";
@@ -23,5 +23,7 @@ export class SingleRecipeComponent implements OnInit {
   ngOnInit(): void {
     const recipeId = this.route.snapshot.params['id'];
     this.singleRecipe$ = this.singleRecipeService.getRecipeById(recipeId);
+
   }
+
 }

@@ -13,7 +13,7 @@
       <span class="material-symbols-outlined">group</span>
       <div class="recipe-legend">
         <span class="material-symbols-outlined">add</span>
-        <span>4 personnes</span>
+        <span>{{ singleRecipe.number_person }} personnes</span>
         <span class="material-symbols-outlined">remove</span>
       </div>
     </div>
@@ -41,7 +41,7 @@
       <div class="ingredient-info">
         {{tester.ingredients.name}}
         <div class="ingredient-unit">
-          {{tester.quantity}}
+          {{(tester.quantity / singleRecipe.number_person) * singleRecipe.number_person }}
           {{tester.units.name}}
         </div>
       </div>

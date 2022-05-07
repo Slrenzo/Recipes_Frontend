@@ -1,3 +1,11 @@
 <div class="child-container">
+  <div class="add-recipe-card">
+    <div class="add-recipe-header">
+      <span class="material-symbols-rounded">add_circle</span>
+    </div>
+    <div class="add-recipe-text">
+      <span>Ajouter une nouvelle recette</span>
+    </div>
+  </div>
   <app-recipe-card *ngFor="let recipeCard of recipeCards$ | async" [recipeCard]="recipeCard"></app-recipe-card>
 </div>

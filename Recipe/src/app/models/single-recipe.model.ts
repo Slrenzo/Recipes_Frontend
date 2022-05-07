@@ -6,15 +6,19 @@ export class SingleRecipe {
   type!: Type;
   ingredientsMeasures!: IngredientsMeasures[];
   steps!: Steps[];
+  number_person!: number;
 
   constructor(id_recipe: string, name: string, time: number, type: Type,
-                 ingredientsMeasures: IngredientsMeasures, steps:Steps) {
+                 ingredientsMeasures: IngredientsMeasures, steps:Steps,
+              number_person: number) {
     this.id_recipe = id_recipe;
     this.name = name;
     this.time = time;
     this.type = type;
     this.ingredientsMeasures = [ingredientsMeasures];
     this.steps = [steps];
+    this.number_person = number_person;
+
   }
 }
 

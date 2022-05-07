@@ -11,8 +11,6 @@ import { RecipeCardListComponent } from './recipe-card-list/recipe-card-list.com
 import {TimePipe} from "./pipes/time.pipe";
 import { SingleRecipeComponent } from './single-recipe/single-recipe.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +20,7 @@ import { SingleRecipeComponent } from './single-recipe/single-recipe.component';
     RecipeCardComponent,
     RecipeCardListComponent,
     TimePipe,
-    SingleRecipeComponent
+    SingleRecipeComponent,
   ],
   imports: [
     BrowserModule,

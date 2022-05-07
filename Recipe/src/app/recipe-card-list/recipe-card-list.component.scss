@@ -1,0 +1,35 @@
+.add-recipe-card {
+  width: 220px;
+  height: 300px;
+  background: #FFFFFF;
+  border-radius : 25px;
+  box-shadow: 2px 2px 9px -2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .add-recipe-header {
+    border-radius: 25px 25px 0 0;
+    height: 150px;
+    width: 220px;
+    display: flex;
+    align-items: center;
+    background: var(--color-main);
+    justify-content: center;
+
+    .material-symbols-rounded {
+      font-size: 68px;
+      color: white;
+      font-variation-settings:
+        'FILL' 1
+    }
+  }
+
+  .add-recipe-text {
+    display: flex;
+    font-size: 22px;
+    height: 140px;
+    text-align: center;
+    align-items: center;
+  }
+}

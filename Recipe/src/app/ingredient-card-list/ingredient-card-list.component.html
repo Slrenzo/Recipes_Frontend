@@ -1,4 +1,14 @@
 <div class="child-container">
+  <div class="add-ingredient-card">
+    <div class="add-ingredient-header">
+      <span class="material-symbols-rounded">add_circle</span>
+    </div>
+    <div class="add-ingredient-text">
+      <span>Ajouter un ingrédient</span>
+    </div>
+  </div>
   <app-ingredient-card *ngFor="let ingredientCard of ingredientCards$ | async" [ingredientCard]="ingredientCard">
   </app-ingredient-card>
 </div>
+
+
