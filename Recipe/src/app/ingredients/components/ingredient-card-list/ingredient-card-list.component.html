@@ -1,3 +1,14 @@
+<mat-form-field appearance="fill">
+  <mat-label>Filtrer les recettes</mat-label>
+  <mat-select [(value)]="categorySelected" (valueChange)="onCategorySelected($event)">
+    <mat-option></mat-option>
+    <mat-option *ngFor="let category of categories$ | async" [value]="category.id_category">
+      {{ category.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
 <div class="child-container">
   <div class="add-ingredient-card">
     <div class="add-ingredient-header">
@@ -10,5 +21,3 @@
   <app-ingredient-card *ngFor="let ingredientCard of ingredientCards$ | async" [ingredientCard]="ingredientCard">
   </app-ingredient-card>
 </div>
-
-

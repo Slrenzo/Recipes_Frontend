@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {RecipeCard} from "../models/recipe-card.model";
+import {RecipeCard} from "../../models/recipe-card.model";
 import {Router} from "@angular/router";
 
 @Component({

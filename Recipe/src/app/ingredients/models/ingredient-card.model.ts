@@ -16,7 +16,7 @@ export class Category {
   name!: string;
 
   constructor(name:string, id_category:string) {
+    this.id_category = id_category;
     this.name = name;
-    this.id_category= id_category;
   }
 }

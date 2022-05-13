@@ -1,14 +1,19 @@
 import {NgModule} from "@angular/core";
-import {IngredientCardListComponent} from "./ingredient-card-list/ingredient-card-list.component";
 import {RouterModule, Routes} from "@angular/router";
-import {RecipeCardListComponent} from "./recipe-card-list/recipe-card-list.component";
-import {SingleRecipeComponent} from "./single-recipe/single-recipe.component";
 
 const routes: Routes = [
-  { path: 'ingredients', component: IngredientCardListComponent},
-  { path: 'recipes/:id', component: SingleRecipeComponent},
-  { path: 'recipes', component: RecipeCardListComponent}
-
+  {
+    path: 'ingredients',
+    loadChildren: () => import('./ingredients/ingredients.module').then(m => m.IngredientsModule)
+  },
+  {
+    path: 'recipes',
+    loadChildren: () => import('./recipes/recipes.module').then(m => m.RecipesModule)
+  },
+  {
+    path: 'recipes/:id',
+    loadChildren: () => import('./single-recipe/single-recipe.module').then(m => m.SingleRecipeModule)
+  }
 ];
 
 @NgModule({
@@ -20,7 +25,4 @@ const routes: Routes = [
   ]
 })
 
-
-export class appRoutingModule {
-
-}
+export class appRoutingModule {}

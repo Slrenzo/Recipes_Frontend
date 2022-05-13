@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {IngredientCard} from "../models/ingredient-card.model";
+import {IngredientCard} from "../../models/ingredient-card.model";
 
 @Component({
   selector: 'app-ingredient-card',
@@ -8,7 +8,7 @@ import {IngredientCard} from "../models/ingredient-card.model";
 })
 export class IngredientCardComponent implements OnInit {
 
-  @Input() ingredientCard!: IngredientCard;
+  @Input() ingredientCard!: IngredientCard
 
   ngOnInit(){
   }
