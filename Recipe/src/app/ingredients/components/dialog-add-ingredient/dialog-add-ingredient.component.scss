@@ -1,0 +1,45 @@
+.dialog-container {
+  display: flex;
+  width: 100%;
+  gap: 40px;
+
+  .dialog-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .dialog-img {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      border-radius: 15px;
+    }
+  }
+
+}
+
+.dialog-button-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .cancel {
+    width: 170px;
+    height: 60px;
+    border: 3px solid #E12020;
+    border-radius: 15px;
+    color: #E12020;
+    font-size: 24px;
+  }
+
+  .confirm {
+    font-size: 24px;
+    background: #243569;
+    border-radius: 15px;
+    width: 170px;
+    height: 60px;
+    color: #FFFFFF;
+  }
+}

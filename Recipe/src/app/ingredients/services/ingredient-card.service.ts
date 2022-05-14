@@ -23,7 +23,21 @@ export class IngredientCardsService {
   getCategory(): Observable<Category[]> {
     return this.http.get<Category[]>('http://localhost:8080/categories');
   }
+
+  // putIngredient(ingredientId: string) {
+  //   return this.http.delete(`http://localhost:8080/ingredients/${ingredientId}`);
+  // }
+
+
+  putIngredient(ingredientId: string, mIngredient: IngredientCard): Observable<IngredientCard> {
+    return this.http.put<IngredientCard>(`http://localhost:8080/ingredients/${ingredientId}`,mIngredient);
+  }
+
+  postIngredient(mIngredient: IngredientCard): Observable<IngredientCard> {
+    return this.http.put<IngredientCard>(`http://localhost:8080/ingredients`,mIngredient);
+  }
 }
+
 
 
 

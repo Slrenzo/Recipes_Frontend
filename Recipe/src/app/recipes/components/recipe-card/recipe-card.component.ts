@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
   templateUrl: './recipe-card.component.html',
   styleUrls: ['./recipe-card.component.scss']
 })
+
 export class RecipeCardComponent implements OnInit {
 
   @Input() recipeCard!: RecipeCard;

@@ -13,9 +13,9 @@ export class IngredientCard {
 
 export class Category {
   id_category!: string;
-  name!: string;
+  name?: string;
 
-  constructor(name:string, id_category:string) {
+  constructor(id_category:string, name?:string) {
     this.id_category = id_category;
     this.name = name;
   }
