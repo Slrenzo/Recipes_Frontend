@@ -1,6 +1,6 @@
 .navbar {
-  border-bottom: var(--color-main) 3px solid;
-  height: 85px;
+  border-bottom: black 2px solid;
+  height: 58px;
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -19,13 +19,14 @@
     display: flex;
     color: white;
     align-items: center;
-    gap: 30px;
     margin-right: 10px;
-    font-size: 25px;
+    font-size: 20px;
 
     a {
       color: black;
+      width: 170px;
       text-decoration: none;
+      text-align: center;
       &:hover {
         text-decoration: underline;
       }

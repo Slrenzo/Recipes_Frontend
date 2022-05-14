@@ -12,6 +12,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import { DialogAddIngredientComponent } from './ingredients/components/dialog-add-ingredient/dialog-add-ingredient.component';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -20,17 +21,18 @@ import { DialogAddIngredientComponent } from './ingredients/components/dialog-ad
     DialogModifyIngredientComponent,
     DialogAddIngredientComponent
   ],
-  imports: [
-    BrowserModule,
-    appRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatSelectModule
-  ],
+    imports: [
+        BrowserModule,
+        appRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatDialogModule,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        MatSelectModule,
+        MatButtonModule
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

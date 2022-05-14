@@ -1,45 +1,46 @@
-.dialog-container {
-  display: flex;
-  width: 100%;
-  gap: 40px;
+::ng-deep .mat-dialog-container {
+  border-radius: 20px !important;
 
-  .dialog-info {
+  .dialog {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-  }
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
 
-  .dialog-img {
-    display: flex;
-    flex-direction: column;
+    .dialog-container {
+      display: flex;
+      width: 100%;
+      gap: 40px;
 
-    img {
-      border-radius: 15px;
+      .dialog-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .dialog-img {
+        display: flex;
+        flex-direction: column;
+
+        img {
+          border-radius: 15px;
+        }
+      }
+
     }
-  }
 
-}
+    .dialog-button-box {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
 
-.dialog-button-box {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-
-  .cancel {
-    width: 170px;
-    height: 60px;
-    border: 3px solid #E12020;
-    border-radius: 15px;
-    color: #E12020;
-    font-size: 24px;
-  }
-
-  .confirm {
-    font-size: 24px;
-    background: #243569;
-    border-radius: 15px;
-    width: 170px;
-    height: 60px;
-    color: #FFFFFF;
+      .mat-flat-button {
+        width: 170px;
+        height: 60px;
+        font-size: 20px;
+        border-radius: 15px;
+      }
+    }
   }
 }

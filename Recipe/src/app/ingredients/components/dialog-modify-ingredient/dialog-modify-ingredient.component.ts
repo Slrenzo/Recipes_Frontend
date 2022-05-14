@@ -21,6 +21,6 @@ export class DialogModifyIngredientComponent implements OnInit {
 
   ngOnInit(): void {
     this.categories$ = this.ingredientCardsService.getCategory();
-
   }
+
 }

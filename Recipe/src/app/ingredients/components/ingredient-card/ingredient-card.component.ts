@@ -21,6 +21,7 @@ export class IngredientCardComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogModifyIngredientComponent, {
       height: '500px',
       width: '750px',
+      panelClass:'oui',
       disableClose : true,
       data: {
         id: this.ingredientCard.id_ingredient,
@@ -28,7 +29,6 @@ export class IngredientCardComponent implements OnInit {
         category: this.ingredientCard.category.id_category
       }
     });
-
     dialogRef.afterClosed().subscribe(result => {
       if (result != "") {
         let modifyIngredient = new IngredientCard(result.id, result.name, new Category(result.category));

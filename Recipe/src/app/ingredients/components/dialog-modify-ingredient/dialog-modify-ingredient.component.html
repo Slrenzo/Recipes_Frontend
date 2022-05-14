@@ -1,31 +1,33 @@
-<h1 mat-dialog-title>Modifier un ingrédient</h1>
-<mat-dialog-content>
-  <div class="dialog-container">
-    <div class="dialog-img">
-      <h3>Choisir une image</h3>
-      <img src="assets/ingredients/{{data.id}}.png" alt="{{data.name}}">
-    </div>
-    <div class="dialog-info">
-      <h3>Informations</h3>
-      <mat-form-field appearance="fill">
-        <mat-label>Nom</mat-label>
-        <input matInput value="{{data.name}}" [(ngModel)]="data.name" >
-      </mat-form-field>
+<div class="dialog">
+  <h1 mat-dialog-title>Modifier un ingrédient</h1>
+  <mat-dialog-content>
+    <div class="dialog-container">
+      <div class="dialog-img">
+        <h3>Choisir une image</h3>
+        <img src="assets/ingredients/{{data.id}}.png" alt="{{data.name}}">
+      </div>
+      <div class="dialog-info">
+        <h3>Informations</h3>
+        <mat-form-field appearance="fill">
+          <mat-label>Nom</mat-label>
+          <input matInput value="{{data.name}}" [(ngModel)]="data.name" >
+        </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Catégorie</mat-label>
-        <mat-select [(value)]="data.category">
-          <mat-option *ngFor="let category of categories$ | async" [value]="category.id_category">
-            {{ category.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Catégorie</mat-label>
+          <mat-select [(value)]="data.category">
+            <mat-option *ngFor="let category of categories$ | async" [value]="category.id_category">
+              {{ category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
-  </div>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <div class="dialog-button-box">
-    <button class="cancel" mat-dialog-close="">Annuler</button>
-    <button class="confirm" [mat-dialog-close]="data">Valider</button>
-  </div>
-</mat-dialog-actions>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <div class="dialog-button-box">
+      <button mat-flat-button color="warn" mat-dialog-close="">Annuler</button>
+      <button mat-flat-button color="primary" [mat-dialog-close]="data">Valider</button>
+    </div>
+  </mat-dialog-actions>
+</div>
