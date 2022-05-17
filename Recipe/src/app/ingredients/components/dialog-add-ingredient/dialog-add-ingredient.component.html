@@ -10,12 +10,12 @@
         <h3>Informations</h3>
         <mat-form-field appearance="fill">
           <mat-label>Nom</mat-label>
-          <input matInput> <!--[(ngModel)]="data.name"-->
+          <input matInput [(ngModel)]="data.name">
         </mat-form-field>
 
         <mat-form-field appearance="fill">
           <mat-label>Catégorie</mat-label>
-          <mat-select>
+          <mat-select [(ngModel)]="data.category">
             <mat-option *ngFor="let category of categories$ | async" [value]="category.id_category">
               {{ category.name}}
             </mat-option>
@@ -28,7 +28,7 @@
   <mat-dialog-actions>
     <div class="dialog-button-box">
       <button mat-flat-button color="warn" mat-dialog-close="">Annuler</button>
-      <button mat-flat-button color="primary" [mat-dialog-close]="data">Valider</button>
+      <button mat-flat-button color="primary" (click)="onCreate(data)">Valider</button>
     </div>
   </mat-dialog-actions>
 </div>

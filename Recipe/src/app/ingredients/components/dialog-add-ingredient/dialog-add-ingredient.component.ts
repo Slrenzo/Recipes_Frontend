@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import {IngredientCardsService} from "../../services/ingredient-card.service";
 import {Observable} from "rxjs";
-import {Category} from "../../models/ingredient-card.model";
+import {Category, IngredientCard} from "../../models/ingredient-card.model";
 
 @Component({
   selector: 'app-dialog-add-ingredient',
@@ -12,14 +12,20 @@ import {Category} from "../../models/ingredient-card.model";
 export class DialogAddIngredientComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              private ingredientCardsService: IngredientCardsService) { }
+              private ingredientCardsService: IngredientCardsService,
+              private dialogRef: MatDialog) { }
 
   categories$!: Observable<Category[]>;
 
-  // categorySelected = this.data.category;
-
-
   ngOnInit(): void {
     this.categories$ = this.ingredientCardsService.getCategory();
+  }
+
+  onCreate(result: any) {
+    console.log(result.name);
+    console.log(result.category);
+    let modifyIngredient = new IngredientCard("", result.name, new Category(result.category));
+    this.ingredientCardsService.postIngredient(modifyIngredient).subscribe();
+    this.dialogRef.closeAll();
   }
 }

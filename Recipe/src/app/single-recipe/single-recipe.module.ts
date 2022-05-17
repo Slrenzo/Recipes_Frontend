@@ -4,12 +4,14 @@ import { SingleRecipeRoutingModule } from './single-recipe-routing.module';
 import { SingleRecipePage } from './pages/single-recipe/single-recipe.page';
 import { SharedModule } from "../shared/shared.module";
 import { SingleRecipeListComponent } from './components/single-recipe-list/single-recipe-list.component';
+import { RecipeHeaderComponent } from './components/recipe-header/recipe-header.component';
 
 
 @NgModule({
   declarations: [
     SingleRecipePage,
     SingleRecipeListComponent,
+    RecipeHeaderComponent,
 
   ],
   imports: [

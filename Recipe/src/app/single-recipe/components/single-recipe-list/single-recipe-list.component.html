@@ -1,12 +1,5 @@
 <div class="recipe-page" *ngIf="singleRecipe$ | async as singleRecipe">
-  <div class="recipe-header">
-    <div class="recipe-img">
-      <img src="assets/recipes/{{ singleRecipe.id_recipe }}.png" alt="{{ singleRecipe.name }}">
-    </div>
-    <div class="recipe-name">
-      <span>{{singleRecipe.name}}</span>
-    </div>
-  </div>
+<app-recipe-header></app-recipe-header>
 
   <div class="recipe-info-container">
     <div class="recipe-info">

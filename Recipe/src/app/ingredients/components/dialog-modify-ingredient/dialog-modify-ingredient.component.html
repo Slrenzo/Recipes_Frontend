@@ -1,5 +1,10 @@
 <div class="dialog">
-  <h1 mat-dialog-title>Modifier un ingrédient</h1>
+  <div class="dialog-header">
+    <h1 mat-dialog-title>Modifier un ingrédient</h1>
+    <div class="dialog-delete">
+      <span class="material-symbols-outlined" (click)="onDelete(data)">delete</span>
+    </div>
+  </div>
   <mat-dialog-content>
     <div class="dialog-container">
       <div class="dialog-img">
@@ -15,7 +20,7 @@
 
         <mat-form-field appearance="fill">
           <mat-label>Catégorie</mat-label>
-          <mat-select [(value)]="data.category">
+          <mat-select [(ngModel)]="data.category">
             <mat-option *ngFor="let category of categories$ | async" [value]="category.id_category">
               {{ category.name}}
             </mat-option>
@@ -27,7 +32,7 @@
   <mat-dialog-actions>
     <div class="dialog-button-box">
       <button mat-flat-button color="warn" mat-dialog-close="">Annuler</button>
-      <button mat-flat-button color="primary" [mat-dialog-close]="data">Valider</button>
+      <button mat-flat-button color="primary" (click)="onSave(data)">Valider</button>
     </div>
   </mat-dialog-actions>
 </div>

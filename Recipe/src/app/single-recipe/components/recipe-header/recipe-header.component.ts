@@ -5,11 +5,11 @@ import {SingleRecipeService} from "../../services/single-recipe.service";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'app-single-recipe-list',
-  templateUrl: './single-recipe-list.component.html',
-  styleUrls: ['./single-recipe-list.component.scss']
+  selector: 'app-recipe-header',
+  templateUrl: './recipe-header.component.html',
+  styleUrls: ['./recipe-header.component.scss']
 })
-export class SingleRecipeListComponent implements OnInit {
+export class RecipeHeaderComponent implements OnInit {
 
   @Input() singleRecipe!: SingleRecipe;
 

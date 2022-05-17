@@ -1,6 +1,6 @@
 export class IngredientCard {
 
-  id_ingredient!: string;
+  id_ingredient: string;
   name!: string;
   category!: Category;
 

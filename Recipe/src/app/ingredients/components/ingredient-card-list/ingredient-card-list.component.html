@@ -1,5 +1,5 @@
 <mat-form-field appearance="fill">
-  <mat-label panelClass="example-panel">Filtrer les ingrédients</mat-label>
+  <mat-label>Filtrer les ingrédients</mat-label>
   <mat-select [(value)]="categorySelected" (valueChange)="onCategorySelected()">
     <mat-option></mat-option>
     <mat-option *ngFor="let category of categories$ | async" [value]="category.id_category">
@@ -10,7 +10,6 @@
 
 
 <div class="child-container">
-
   <div class="add-ingredient-card" (click)="openDialog()">
     <div class="add-ingredient-header">
       <span class="material-symbols-rounded">add_circle</span>

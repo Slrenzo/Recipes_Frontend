@@ -14,8 +14,9 @@ export class IngredientCardListComponent implements OnInit {
 
   ingredientCards$!: Observable<IngredientCard[]>;
   categories$!: Observable<Category[]>;
-
   categorySelected!: string;
+  category!: string;
+  name!: string;
 
   constructor(private dialog: MatDialog,
               private ingredientCardsService: IngredientCardsService) {  }
@@ -25,18 +26,15 @@ export class IngredientCardListComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogAddIngredientComponent, {
+    this.dialog.open(DialogAddIngredientComponent, {
       height: '500px',
       width: '750px',
-      disableClose : true
+      disableClose : true,
+      data : {
+        name: this.name,
+        category: this.category,
+      }
     });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (result != null) {
-    //     let modifyIngredient = new IngredientCard(result.id, result.name, new Category(result.category));
-    //     this.ingredientCardsService.putIngredient(result.id, modifyIngredient).subscribe();
-    //   }
-    // });
   }
 
   ngOnInit(): void {
