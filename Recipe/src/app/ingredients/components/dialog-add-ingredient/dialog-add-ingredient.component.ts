@@ -22,8 +22,6 @@ export class DialogAddIngredientComponent implements OnInit {
   }
 
   onCreate(result: any) {
-    console.log(result.name);
-    console.log(result.category);
     let modifyIngredient = new IngredientCard("", result.name, new Category(result.category));
     this.ingredientCardsService.postIngredient(modifyIngredient).subscribe();
     this.dialogRef.closeAll();

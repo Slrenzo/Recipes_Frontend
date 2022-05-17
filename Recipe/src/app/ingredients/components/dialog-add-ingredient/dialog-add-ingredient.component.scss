@@ -5,37 +5,4 @@
   height: 100%;
   justify-content: space-evenly;
 
-  .dialog-container {
-    display: flex;
-    width: 100%;
-    gap: 40px;
-
-    .dialog-info {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .dialog-img {
-      display: flex;
-      flex-direction: column;
-
-      img {
-        border-radius: 15px;
-      }
-    }
-  }
-
-  .dialog-button-box {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-
-    .mat-flat-button {
-      width: 170px;
-      height: 60px;
-      font-size: 20px;
-      border-radius: 15px;
-    }
-  }
 }
