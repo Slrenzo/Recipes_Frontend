@@ -28,4 +28,13 @@ export class DialogAddIngredientComponent implements OnInit {
     this.ingredientCardsService.postIngredient(modifyIngredient).subscribe();
     this.dialogRef.closeAll();
   }
+
+  onFileUpload(event: any) {
+    const file = event.target.files[0];
+    let newFile = new File([file], "OUI.png", {
+      type: file.type,
+    });
+    console.log(newFile);
+    //TODO GESTION DES IMAGES
+  }
 }

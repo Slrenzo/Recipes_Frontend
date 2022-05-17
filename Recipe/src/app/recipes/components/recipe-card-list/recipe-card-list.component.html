@@ -1,13 +1,19 @@
-<mat-form-field appearance="fill">
-  <mat-label>Filtrer les recettes</mat-label>
-  <mat-select [(value)]="typeSelected" (valueChange)="onTypeSelected($event)">
-    <mat-option></mat-option>
-    <mat-option *ngFor="let type of types$ | async" [value]="type.id_type">
-      {{ type.name}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<div class="filter-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Filtrer les recettes</mat-label>
+    <mat-select [(value)]="typeSelected" (valueChange)="onChange()">
+      <mat-option></mat-option>
+      <mat-option *ngFor="let type of types$ | async" [value]="type.id_type">
+        {{ type.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
+  <mat-form-field appearance="fill">
+    <mat-label>Rechercher une recette</mat-label>
+    <input matInput (change)="onChange()" [(ngModel)]="nameSelected">
+  </mat-form-field>
+</div>
 <div class="child-container">
   <div class="add-recipe-card">
     <div class="add-recipe-header">
@@ -17,5 +23,6 @@
       <span>Ajouter une nouvelle recette</span>
     </div>
   </div>
+
   <app-recipe-card *ngFor="let recipeCard of recipeCards$ | async" [recipeCard]="recipeCard"></app-recipe-card>
 </div>

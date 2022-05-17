@@ -15,9 +15,12 @@ export class IngredientCardsService {
   //   return this.http.get<IngredientCard[]>('http://localhost:8080/ingredients');
   // }
 
-  getIngredientsByParameter(selectedCategory:string): Observable<IngredientCard[]> {
-    let param1 = new HttpParams().set('category', selectedCategory != null ? selectedCategory : "");
-    return this.http.get<IngredientCard[]>("http://localhost:8080/ingredients", {params:param1});
+  getIngredientsByParameter(selectedCategory:string, selectedName:string): Observable<IngredientCard[]> {
+    let param = new HttpParams().set('category', selectedCategory != null ? selectedCategory : "")
+                                .set('name', selectedName != null ? selectedName : "");
+    console.log("categorie : " + selectedCategory);
+    console.log(selectedName);
+    return this.http.get<IngredientCard[]>("http://localhost:8080/ingredients", {params:param});
   }
 
   getCategory(): Observable<Category[]> {

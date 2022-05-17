@@ -4,6 +4,7 @@
     <div class="dialog-container">
       <div class="dialog-img">
         <h3>Choisir une image</h3>
+        <input type="file" (change)="onFileUpload($event)">
         <img src="assets/ingredients/add.png" alt="add">
       </div>
       <div class="dialog-info">

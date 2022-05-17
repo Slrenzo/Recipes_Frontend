@@ -15,9 +15,10 @@ export class RecipeCardsService {
   //   return this.http.get<RecipeCard[]>('http://localhost:8080/recipes');
   // }
 
-  getRecipesByParameter(selectedCategory:string): Observable<RecipeCard[]> {
-    let param1 = new HttpParams().set('type', selectedCategory != null ? selectedCategory : "");
-    return this.http.get<RecipeCard[]>("http://localhost:8080/recipes", {params:param1});
+  getRecipesByParameter(selectedCategory:string, selectedName:string): Observable<RecipeCard[]> {
+    let param = new HttpParams().set('type', selectedCategory != null ? selectedCategory : "")
+                                .set('name', selectedName != null ? selectedName : "");
+    return this.http.get<RecipeCard[]>("http://localhost:8080/recipes", {params:param});
   }
 
   getTypesRecipe(): Observable<Type[]> {

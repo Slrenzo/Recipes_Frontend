@@ -15,14 +15,16 @@ export class IngredientCardListComponent implements OnInit {
   ingredientCards$!: Observable<IngredientCard[]>;
   categories$!: Observable<Category[]>;
   categorySelected!: string;
+  nameSelected!: string;
   category!: string;
   name!: string;
 
   constructor(private dialog: MatDialog,
               private ingredientCardsService: IngredientCardsService) {  }
 
-  onCategorySelected() {
-    this.ingredientCards$ = this.ingredientCardsService.getIngredientsByParameter(this.categorySelected);
+  onChange() {
+    this.ingredientCards$ = this.ingredientCardsService
+                            .getIngredientsByParameter(this.categorySelected, this.nameSelected);
   }
 
   openDialog(): void {
@@ -38,7 +40,8 @@ export class IngredientCardListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ingredientCards$ = this.ingredientCardsService.getIngredientsByParameter(this.categorySelected);
+    this.ingredientCards$ = this.ingredientCardsService
+                            .getIngredientsByParameter(this.categorySelected, this.nameSelected);
     this.categories$ = this.ingredientCardsService.getCategory();
   }
 }

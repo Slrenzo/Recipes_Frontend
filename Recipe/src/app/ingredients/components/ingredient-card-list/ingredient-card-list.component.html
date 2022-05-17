@@ -1,13 +1,19 @@
-<mat-form-field appearance="fill">
-  <mat-label>Filtrer les ingrédients</mat-label>
-  <mat-select [(value)]="categorySelected" (valueChange)="onCategorySelected()">
-    <mat-option></mat-option>
-    <mat-option *ngFor="let category of categories$ | async" [value]="category.id_category">
-      {{ category.name}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<div class="filter-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Filtrer les ingrédients</mat-label>
+    <mat-select [(value)]="categorySelected" (valueChange)="onChange()">
+      <mat-option></mat-option>
+      <mat-option *ngFor="let category of categories$ | async" [value]="category.id_category">
+        {{ category.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
+    <mat-form-field appearance="fill">
+      <mat-label>Rechercher un ingrédient</mat-label>
+      <input matInput (change)="onChange()" [(ngModel)]="nameSelected">
+    </mat-form-field>
+</div>
 
 <div class="child-container">
   <div class="add-ingredient-card" (click)="openDialog()">

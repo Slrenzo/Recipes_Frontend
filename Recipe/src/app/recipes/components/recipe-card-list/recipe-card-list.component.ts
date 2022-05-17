@@ -14,16 +14,18 @@ export class RecipeCardListComponent implements OnInit {
   types$!: Observable<Type[]>;
 
   typeSelected!: string;
+  nameSelected!: string;
 
   constructor(private recipeCardsService: RecipeCardsService) { }
 
   ngOnInit(): void {
-    this.recipeCards$ = this.recipeCardsService.getRecipesByParameter(this.typeSelected);
+    this.recipeCards$ = this.recipeCardsService
+                        .getRecipesByParameter(this.typeSelected, this.nameSelected);
     this.types$ = this.recipeCardsService.getTypesRecipe();
   }
 
-  onTypeSelected($event: any) {
-    this.recipeCards$ = this.recipeCardsService.getRecipesByParameter(this.typeSelected);
+  onChange() {
+    this.recipeCards$ = this.recipeCardsService
+                        .getRecipesByParameter(this.typeSelected, this.nameSelected);
   }
-
 }

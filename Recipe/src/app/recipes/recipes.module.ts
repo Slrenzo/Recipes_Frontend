@@ -6,6 +6,11 @@ import { RecipeCardListComponent } from "./components/recipe-card-list/recipe-ca
 import { RecipeCardComponent } from "./components/recipe-card/recipe-card.component";
 import { SharedModule } from "../shared/shared.module";
 import {MatSelectModule} from "@angular/material/select";
+import {FormsModule} from "@angular/forms";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 
 @NgModule({
@@ -14,11 +19,16 @@ import {MatSelectModule} from "@angular/material/select";
     RecipeCardComponent,
     RecipeCardListComponent
   ],
-    imports: [
-        CommonModule,
-        RecipesRoutingModule,
-        SharedModule,
-        MatSelectModule
-    ]
+  imports: [
+    CommonModule,
+    RecipesRoutingModule,
+    SharedModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatSelectModule,
+    MatButtonModule
+  ]
 })
 export class RecipesModule { }
