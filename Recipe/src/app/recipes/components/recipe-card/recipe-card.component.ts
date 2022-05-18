@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {RecipeCard} from "../../models/recipe-card.model";
+import {Recipe} from "../../models/recipe-card.model";
 import {Router} from "@angular/router";
 
 @Component({
@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 
 export class RecipeCardComponent implements OnInit {
 
-  @Input() recipeCard!: RecipeCard;
+  @Input() recipeCard!: Recipe;
 
   constructor(private router: Router) { }
 

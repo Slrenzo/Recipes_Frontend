@@ -3,7 +3,7 @@
     <mat-label>Filtrer les ingrédients</mat-label>
     <mat-select [(value)]="categorySelected" (valueChange)="onChange()">
       <mat-option></mat-option>
-      <mat-option *ngFor="let category of categories$ | async" [value]="category.id_category">
+      <mat-option *ngFor="let category of categories$ | async" [value]="category.id">
         {{ category.name}}
       </mat-option>
     </mat-select>
@@ -16,7 +16,7 @@
 </div>
 
 <div class="child-container">
-  <div class="add-ingredient-card" (click)="openDialog()">
+  <div class="add-ingredient-card" routerLink="add">
     <div class="add-ingredient-header">
       <span class="material-symbols-rounded">add_circle</span>
     </div>
@@ -25,6 +25,6 @@
     </div>
   </div>
 
-  <app-ingredient-card *ngFor="let ingredientCard of ingredientCards$ | async" [ingredientCard]="ingredientCard">
+  <app-ingredient-card *ngFor="let ingredientCard of ingredientCards$ | async" [ingredient]="ingredientCard">
   </app-ingredient-card>
 </div>

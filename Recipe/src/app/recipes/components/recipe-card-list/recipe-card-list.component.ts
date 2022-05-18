@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
-import {RecipeCard, Type} from "../../models/recipe-card.model";
+import {Recipe, Type} from "../../models/recipe-card.model";
 import {RecipeCardsService} from "../../services/recipe-card.service";
 
 @Component({
@@ -10,7 +10,7 @@ import {RecipeCardsService} from "../../services/recipe-card.service";
 })
 export class RecipeCardListComponent implements OnInit {
 
-  recipeCards$!: Observable<RecipeCard[]>;
+  recipeCards$!: Observable<Recipe[]>;
   types$!: Observable<Type[]>;
 
   typeSelected!: string;

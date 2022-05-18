@@ -12,19 +12,16 @@ import {Category} from "../../models/ingredient-card.model";
 })
 export class DialogDeleteIngredientComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              private ingredientCardsService: IngredientCardsService,
-              private dialogRef: MatDialog,
-              ) { }
-
   categories$!: Observable<Category[]>;
 
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
+              private ingredientCardsService: IngredientCardsService,
+              private dialogRef: MatDialog) { }
 
   ngOnInit(): void { }
 
   onDelete(result: any) {
     this.ingredientCardsService.deleteIngredient(result.id).subscribe();
     this.dialogRef.closeAll();
-
   }
 }

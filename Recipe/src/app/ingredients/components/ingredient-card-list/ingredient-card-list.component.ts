@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IngredientCardsService } from "../../services/ingredient-card.service";
 import { Observable } from "rxjs";
-import {Category, IngredientCard} from "../../models/ingredient-card.model";
-import {MatDialog} from "@angular/material/dialog";
-import {DialogAddIngredientComponent} from "../dialog-add-ingredient/dialog-add-ingredient.component";
+import {Category, IngredientResponse} from "../../models/ingredient-card.model";
 
 @Component({
   selector: 'app-ingredient-card-list',
@@ -12,31 +10,16 @@ import {DialogAddIngredientComponent} from "../dialog-add-ingredient/dialog-add-
 })
 export class IngredientCardListComponent implements OnInit {
 
-  ingredientCards$!: Observable<IngredientCard[]>;
+  ingredientCards$!: Observable<IngredientResponse[]>;
   categories$!: Observable<Category[]>;
   categorySelected!: string;
   nameSelected!: string;
-  category!: string;
-  name!: string;
 
-  constructor(private dialog: MatDialog,
-              private ingredientCardsService: IngredientCardsService) {  }
+  constructor(private ingredientCardsService: IngredientCardsService) {  }
 
   onChange() {
     this.ingredientCards$ = this.ingredientCardsService
                             .getIngredientsByParameter(this.categorySelected, this.nameSelected);
-  }
-
-  openDialog(): void {
-    this.dialog.open(DialogAddIngredientComponent, {
-      height: '500px',
-      width: '750px',
-      disableClose : true,
-      data : {
-        name: this.name,
-        category: this.category,
-      }
-    });
   }
 
   ngOnInit(): void {

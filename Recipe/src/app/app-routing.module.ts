@@ -13,7 +13,12 @@ const routes: Routes = [
   {
     path: 'recipes/:id',
     loadChildren: () => import('./single-recipe/single-recipe.module').then(m => m.SingleRecipeModule)
-  }
+  },
+
+  // {
+  //   path: 'ingredients/:id',
+  //   loadChildren: () => import('./ingredients/ingredients.module').then(m => m.IngredientsModule)
+  // }
 ];
 
 @NgModule({

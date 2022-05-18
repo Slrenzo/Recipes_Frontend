@@ -1,9 +1,9 @@
-<div class="ingredient-card" (click)="openDialog()">
+<div class="ingredient-card" [routerLink]="ingredient.id" [state]="{ ingredient : ingredient}">
   <div class="ingredient-img">
-    <img src="assets/ingredients/{{ ingredientCard.id_ingredient }}.png" alt="{{ ingredientCard.name }}">
+    <img src="assets/ingredients/{{ ingredient.id }}.png" alt="{{ ingredient.name }}">
   </div>
   <div class="ingredient-text">
-    <span class="ingredient-name">{{ ingredientCard.name }}</span>
-    <span class="ingredient-category"> Catégorie : {{ ingredientCard.category.name }}</span>
+    <span class="ingredient-name">{{ ingredient.name }}</span>
+    <span class="ingredient-category"> Catégorie : {{ ingredient.category.name }}</span>
   </div>
 </div>

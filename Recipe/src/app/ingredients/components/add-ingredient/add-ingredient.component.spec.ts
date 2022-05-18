@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DialogAddIngredientComponent } from './dialog-add-ingredient.component';
+import { AddIngredientComponent } from './add-ingredient.component';
 
 describe('DialogAddIngredientComponent', () => {
-  let component: DialogAddIngredientComponent;
-  let fixture: ComponentFixture<DialogAddIngredientComponent>;
+  let component: AddIngredientComponent;
+  let fixture: ComponentFixture<AddIngredientComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogAddIngredientComponent ]
+      declarations: [ AddIngredientComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DialogAddIngredientComponent);
+    fixture = TestBed.createComponent(AddIngredientComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

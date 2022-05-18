@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {IngredientCard} from "../../models/ingredient-card.model";
-import {MatDialog} from "@angular/material/dialog";
-import {DialogModifyIngredientComponent} from "../dialog-modify-ingredient/dialog-modify-ingredient.component";
+import {IngredientResponse} from "../../models/ingredient-card.model";
 
 @Component({
   selector: 'app-ingredient-card',
@@ -11,22 +9,9 @@ import {DialogModifyIngredientComponent} from "../dialog-modify-ingredient/dialo
 
 export class IngredientCardComponent implements OnInit {
 
-  @Input() ingredientCard!: IngredientCard
+  @Input() ingredient!: IngredientResponse
 
-  constructor(private dialog: MatDialog) { }
-
-  openDialog(): void {
-    this.dialog.open(DialogModifyIngredientComponent, {
-      height: '500px',
-      width: '750px',
-      disableClose : true,
-      data: {
-        id: this.ingredientCard.id_ingredient,
-        name: this.ingredientCard.name,
-        category: this.ingredientCard.category.id_category
-      }
-    });
-  }
+  constructor() { }
 
   ngOnInit(): void {  }
 }
