@@ -1,0 +1,35 @@
+<div>
+  <h1>Ajouter un ingrédient</h1>
+
+    <div class="dialog-container">
+      <div class="dialog-img">
+        <h3>Choisir une image</h3>
+<!--        <input type="file" (change)="onFileUpload($event)">-->
+        <img src="assets/ingredients/add.png" alt="add">
+      </div>
+      <div class="dialog-info">
+        <h3>Informations</h3>
+        <mat-form-field appearance="fill">
+          <mat-label>Nom</mat-label>
+          <input matInput [(ngModel)]="ingredientPostModel.name">
+        </mat-form-field>
+
+<!--        <mat-form-field appearance="fill">-->
+<!--          <mat-label>Catégorie</mat-label>-->
+<!--         <mat-select [(ngModel)]="ingredientPostModel.categoryId">-->
+<!--            <mat-option *ngFor="let category of categories$ | async" [value]="category.id">-->
+<!--              {{ category.name}}-->
+<!--            </mat-option>-->
+<!--          </mat-select>-->
+<!--        </mat-form-field>-->
+      </div>
+    </div>
+
+
+
+    <div class="dialog-button-box">
+      <button mat-flat-button color="warn">Annuler</button>
+      <button mat-flat-button color="primary" (click)="onCreate(ingredientPostModel)">Valider</button>
+    </div>
+</div>
+

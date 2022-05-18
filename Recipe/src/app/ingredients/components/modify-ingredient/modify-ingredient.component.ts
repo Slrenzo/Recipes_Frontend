@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {Category, IngredientPutRequest, IngredientResponse} from "../../models/ingredient-card.model";
+import {Category, IngredientPutRequest} from "../../models/ingredient-card.model";
 import {IngredientCardsService} from "../../services/ingredient-card.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DialogDeleteIngredientComponent} from "../dialog-delete-ingredient/dialog-delete-ingredient.component";
