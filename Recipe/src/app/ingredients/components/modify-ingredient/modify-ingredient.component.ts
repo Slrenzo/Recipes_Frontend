@@ -26,11 +26,8 @@ export class ModifyIngredientComponent implements OnInit {
   }
 
   onSave(ingredient: IngredientPutRequest) {
-    this.ingredientCardsService.putIngredient(ingredient.id, {
-      id: ingredient.id,
-      name: ingredient.name,
-      categoryId: ingredient.categoryId
-    }).subscribe();
+    this.ingredientCardsService.putIngredient(ingredient.id, ingredient).subscribe();
+    this.router.navigateByUrl("ingredients");
   }
 
   onDelete(ingredient: IngredientPutRequest) {
@@ -46,6 +43,7 @@ export class ModifyIngredientComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.ingredientPutModel);
     this.categories$ = this.ingredientCardsService.getCategory();
   }
 }

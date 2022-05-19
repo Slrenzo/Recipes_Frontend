@@ -9,7 +9,7 @@ import {IngredientResponse} from "../../models/ingredient-card.model";
 
 export class IngredientCardComponent implements OnInit {
 
-  @Input() ingredient!: IngredientResponse
+  @Input() ingredient!: IngredientResponse;
 
   constructor() { }
 

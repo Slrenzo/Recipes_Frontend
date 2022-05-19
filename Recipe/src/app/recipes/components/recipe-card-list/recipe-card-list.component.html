@@ -3,7 +3,7 @@
     <mat-label>Filtrer les recettes</mat-label>
     <mat-select [(value)]="typeSelected" (valueChange)="onChange()">
       <mat-option></mat-option>
-      <mat-option *ngFor="let type of types$ | async" [value]="type.id_type">
+      <mat-option *ngFor="let type of types$ | async" [value]="type.id">
         {{ type.name}}
       </mat-option>
     </mat-select>

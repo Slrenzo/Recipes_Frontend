@@ -21,6 +21,5 @@ export class RecipeHeaderComponent implements OnInit {
   ngOnInit(): void {
     const recipeId = this.route.snapshot.params['id'];
     this.singleRecipe$ = this.singleRecipeService.getRecipeById(recipeId);
-
   }
 }

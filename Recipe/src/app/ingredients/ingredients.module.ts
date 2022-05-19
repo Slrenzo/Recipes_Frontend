@@ -8,7 +8,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {ModifyIngredientComponent} from "./components/modify-ingredient/modify-ingredient.component";
 import {MatDialogModule} from "@angular/material/dialog";
 import {AddIngredientComponent} from "./components/add-ingredient/add-ingredient.component";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonModule} from "@angular/material/button";
@@ -31,7 +31,8 @@ import { DialogDeleteIngredientComponent } from './components/dialog-delete-ingr
     MatFormFieldModule,
     FormsModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   entryComponents: [
     ModifyIngredientComponent,

@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import {IngredientCardsService} from "../../services/ingredient-card.service";
 import {Observable} from "rxjs";
 import {Category} from "../../models/ingredient-card.model";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -16,6 +17,7 @@ export class DialogDeleteIngredientComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               private ingredientCardsService: IngredientCardsService,
+              private router: Router,
               private dialogRef: MatDialog) { }
 
   ngOnInit(): void { }
@@ -23,5 +25,6 @@ export class DialogDeleteIngredientComponent implements OnInit {
   onDelete(result: any) {
     this.ingredientCardsService.deleteIngredient(result.id).subscribe();
     this.dialogRef.closeAll();
+    this.router.navigateByUrl("ingredients");
   }
 }

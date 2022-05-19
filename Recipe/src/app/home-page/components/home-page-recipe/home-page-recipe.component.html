@@ -1,0 +1,12 @@
+<div class="recipe-card">
+  <div class="recipe-img">
+    <img src="assets/recipes/{{ homePageRecipe.id }}.png" alt="{{ homePageRecipe.name }}">
+  </div>
+  <div class="recipe-text">
+    <span class="recipe-name">{{ homePageRecipe.name }}</span>
+    <div class="recipe-time">
+      <span class="material-symbols-outlined">timer</span>
+      <span>{{ homePageRecipe.time | time }}</span>
+    </div>
+  </div>
+</div>
