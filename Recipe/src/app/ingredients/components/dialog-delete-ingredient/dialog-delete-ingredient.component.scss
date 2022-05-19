@@ -7,18 +7,8 @@
 
   .dialog-content {
     display: flex;
+    gap: 30px;
+    justify-content: center;
   }
 
-  .dialog-button-box {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-
-    .mat-flat-button {
-      width: 170px;
-      height: 60px;
-      font-size: 20px;
-      border-radius: 15px;
-    }
-  }
 }

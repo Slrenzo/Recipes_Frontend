@@ -7,11 +7,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 30px;
 
   .recipe-img {
     display: flex;
     flex-direction: column;
+    width: 350px;
+    height: 350px;
 
     img {
       border-radius: 15px;
@@ -28,18 +30,13 @@
       text-align: center;
       font-size: 18px;
     }
-    .recipe-button-box {
-      display: flex;
-      justify-content: space-around;
-      width: 100%;
+  }
 
-      .mat-flat-button {
-        width: 170px;
-        height: 60px;
-        font-size: 20px;
-        border-radius: 15px;
-      }
-    }
+  .button-box {
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+
 
   }
 }

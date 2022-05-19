@@ -1,23 +1,27 @@
-<div>
+<div class="add-container">
   <h1>Ajouter un ingrédient</h1>
 
-    <div class="dialog-container">
-      <div class="dialog-img">
+    <div class="add-box">
+
+      <div class="add-img">
         <h3>Choisir une image</h3>
+        <div class="recipe-img">
+          <img [src]="add_image" alt="add">
+        </div>
         <input type="file" (change)="onFileUpload($event)">
-        <img [src]="add_image" alt="add">
       </div>
-      <div class="dialog-info">
+
+      <div class="add-info">
         <h3>Informations</h3>
         <form [formGroup]="ingredientForm">
           <mat-form-field appearance="fill">
             <mat-label>Nom</mat-label>
-            <input matInput type="text" formControlName="name">
+            <input required matInput type="text" formControlName="name">
           </mat-form-field>
 
           <mat-form-field appearance="fill">
             <mat-label>Catégorie</mat-label>
-           <mat-select formControlName="categoryId">
+           <mat-select required formControlName="categoryId">
               <mat-option *ngFor="let category of categories$ | async" [value]="category.id">
                 {{ category.name}}
               </mat-option>
@@ -28,9 +32,9 @@
     </div>
 
 
-    <div class="dialog-button-box">
-      <button mat-flat-button color="warn">Annuler</button>
-      <button mat-flat-button color="primary" (click)="onSubmitForm()">Valider</button>
+    <div class="button-box">
+      <button class="delete-button" routerLink="/ingredients">Annuler</button>
+      <button class="confirm-button" [disabled]="ingredientForm.invalid" (click)="onSubmitForm()">Valider</button>
     </div>
 </div>
 

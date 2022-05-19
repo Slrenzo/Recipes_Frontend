@@ -1,8 +1,22 @@
-.dialog {
+.add-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
 
+  .add-box {
+
+    .add-img {
+      overflow: hidden;
+    }
+
+    .add-info {
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+  }
 }

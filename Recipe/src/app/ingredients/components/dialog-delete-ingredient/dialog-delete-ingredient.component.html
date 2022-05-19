@@ -17,10 +17,11 @@
   </mat-dialog-content>
 
 
-  <div class="dialog-button-box">
-    <mat-dialog-actions>
-        <button mat-flat-button color="warn" mat-dialog-close="">Annuler</button>
-        <button mat-flat-button color="primary" (click)="onDelete(data)">Valider</button>
-    </mat-dialog-actions>
-  </div>
+
+  <mat-dialog-actions>
+    <div class="button-box">
+      <button class="delete-button" mat-dialog-close="">Annuler</button>
+      <button class="confirm-button" (click)="onDelete(data)">Valider</button>
+    </div>
+  </mat-dialog-actions>
 </div>
