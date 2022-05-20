@@ -1,4 +1,4 @@
-<div class="ingredient-card" [routerLink]="ingredient.id" [state]="{ ingredient : {id : ingredient.id,name: ingredient.name, categoryId: ingredient.category.id}}">
+<div class="ingredient-card" [routerLink]="ingredient.id">
   <div class="ingredient-img">
     <img [src]="ingredient.image" alt="{{ ingredient.name }}">
     {{ingredient.image}}
@@ -6,7 +6,6 @@
   <div class="ingredient-text">
     <span class="ingredient-name">{{ ingredient.name }}</span>
     <span class="ingredient-category"> Catégorie : {{ ingredient.category.name }}</span>
-    <span>{{ ingredient.id }}</span>
   </div>
 </div>
 

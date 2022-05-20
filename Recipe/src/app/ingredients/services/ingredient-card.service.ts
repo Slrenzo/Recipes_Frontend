@@ -16,6 +16,10 @@ export class IngredientCardsService {
 
   constructor(private http: HttpClient) {}
 
+  getIngredientById(ingredientId: string): Observable<IngredientResponse> {
+    return this.http.get<IngredientResponse>(`http://localhost:8080/ingredients/${ingredientId}`);
+  }
+
   getIngredientsByParameter(selectedCategory:string, selectedName:string): Observable<IngredientResponse[]> {
     let param = new HttpParams().set('category', selectedCategory != null ? selectedCategory : "")
                                 .set('name', selectedName != null ? selectedName : "");
