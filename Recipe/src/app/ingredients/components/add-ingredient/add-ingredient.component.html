@@ -1,40 +1,39 @@
 <div class="add-container">
   <h1>Ajouter un ingrédient</h1>
-
-    <div class="add-box">
-
+  <div class="add-box">
+    <div class="add-image-container">
+      <span class="subtitle">Choisir une image</span>
       <div class="add-img">
-        <h3>Choisir une image</h3>
-        <div class="recipe-img">
+        <div class="ingredient-img">
           <img [src]="image" alt="add">
         </div>
-        <input type="file" (change)="onFileUpload($event)">
       </div>
-
-      <div class="add-info">
-        <h3>Informations</h3>
-        <form [formGroup]="ingredientForm">
-          <mat-form-field appearance="fill">
-            <mat-label>Nom</mat-label>
-            <input required matInput type="text" formControlName="name">
-          </mat-form-field>
-
-          <mat-form-field appearance="fill">
-            <mat-label>Catégorie</mat-label>
-           <mat-select required formControlName="categoryId">
-              <mat-option *ngFor="let category of categories$ | async" [value]="category.id">
-                {{ category.name}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </form>
-      </div>
+      <input type="file" (change)="onFileUpload($event)">
     </div>
+    <div class="add-info">
+      <span class="subtitle">Informations</span>
+      <form [formGroup]="ingredientForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Nom</mat-label>
+          <input required matInput type="text" formControlName="name">
+        </mat-form-field>
 
-
-    <div class="button-box">
-      <button class="delete-button" routerLink="/ingredients">Annuler</button>
-      <button class="confirm-button" [disabled]="ingredientForm.invalid" (click)="onSubmitForm()">Valider</button>
+        <mat-form-field appearance="fill">
+          <mat-label>Catégorie</mat-label>
+          <mat-select required formControlName="categoryId">
+            <mat-option *ngFor="let category of categories$ | async" [value]="category.id">
+              {{ category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
     </div>
+  </div>
+
+
+  <div class="button-box">
+    <button class="delete-button" routerLink="/ingredients">Annuler</button>
+    <button class="confirm-button" [disabled]="ingredientForm.invalid" (click)="onSubmitForm()">Valider</button>
+  </div>
 </div>
 

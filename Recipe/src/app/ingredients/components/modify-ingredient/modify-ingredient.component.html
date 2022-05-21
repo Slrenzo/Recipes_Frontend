@@ -1,13 +1,15 @@
 <div class="delete-box">
   <h1>Modifier un ingrédient</h1>
 </div>
-<div class="ingredient-box" *ngIf="ingredients$ | async as ingredient">
-  <span>Choisir une image</span>
-  <div class="recipe-img">
-    <img [src]="ingredient.image" alt="{{ingredient.name}}">
+<div class="ingredient-box">
+  <div class="ingredient-img-container">
+    <span class="subtitle">Choisir une image</span>
+    <div class="ingredient-img">
+      <img [src]="ingredient.image" alt="{{ingredient.name}}">
+    </div>
+    <input type="file" (change)="onFileUpload($event)">
   </div>
-
-  <div class="recipe-information-box">
+  <div class="ingredient-info-box">
     <span class="subtitle">Informations</span>
     <mat-form-field appearance="fill">
       <mat-label>Nom</mat-label>

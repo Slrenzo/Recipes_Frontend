@@ -15,7 +15,7 @@ export class AddIngredientComponent implements OnInit {
   ingredientPostModel!: IngredientPostRequest;
   ingredientForm!: FormGroup;
 
-  image!: string;
+  image: string = "assets/add.png";
   categories$!: Observable<Category[]>;
 
   constructor(private ingredientCardsService: IngredientCardsService,
@@ -38,10 +38,11 @@ export class AddIngredientComponent implements OnInit {
   }
 
   converToBase64(file: File) {
-    const imageObs = new Observable((subscriber: Subscriber<string>) => { this.readFile(file, subscriber) })
+    const imageObs = new Observable((subscriber: Subscriber<string>) => {
+      this.readFile(file, subscriber)
+    })
 
     imageObs.subscribe((fileImg) => {
-      //console.log(fileImg)
       this.image = fileImg;
     })
   }

@@ -22,7 +22,7 @@ export class IngredientCardsService {
 
   getIngredientsByParameter(selectedCategory:string, selectedName:string): Observable<IngredientResponse[]> {
     let param = new HttpParams().set('category', selectedCategory != null ? selectedCategory : "")
-                                .set('name', selectedName != null ? selectedName : "");
+      .set('name', selectedName != null ? selectedName : "");
     return this.http.get<IngredientResponse[]>("http://localhost:8080/ingredients", {params:param});
   }
 
@@ -35,7 +35,9 @@ export class IngredientCardsService {
   }
 
   putIngredient(ingredientId: string, Ingredient: IngredientPutRequest): Observable<IngredientPutRequest> {
+    console.log(Ingredient);
     return this.http.put<IngredientPutRequest>(`http://localhost:8080/ingredients/${ingredientId}`,Ingredient);
+
   }
 
   postIngredient(Ingredient: IngredientPostRequest): Observable<IngredientPostRequest> {

@@ -1,11 +1,10 @@
 <div class="dialog">
   <span class="dialog-title" mat-dialog-title>Supprimer un ingrédient</span>
 
-
   <mat-dialog-content>
     <div class="dialog-content">
       <div class="dialog-img">
-        <img src="assets/ingredients/{{data.id}}.png" alt="{{data.name}}">
+        <img [src]="data.image" alt="{{data.name}}">
       </div>
       <div class="dialog-info">
         <mat-form-field appearance="fill">
@@ -15,8 +14,6 @@
       </div>
     </div>
   </mat-dialog-content>
-
-
 
   <mat-dialog-actions>
     <div class="button-box">

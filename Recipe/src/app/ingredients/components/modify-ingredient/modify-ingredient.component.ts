@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
-import {Category, IngredientPutRequest, IngredientResponse} from "../../models/ingredient-card.model";
+import {Observable, Subscriber} from "rxjs";
+import {Category, IngredientResponse} from "../../models/ingredient-card.model";
 import {IngredientCardsService} from "../../services/ingredient-card.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DialogDeleteIngredientComponent} from "../dialog-delete-ingredient/dialog-delete-ingredient.component";
@@ -13,22 +13,29 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class ModifyIngredientComponent implements OnInit {
 
-  //ingredientPutModel: IngredientPutRequest;
-  ingredients$!: Observable<IngredientResponse>;
-
   categories$!: Observable<Category[]>;
+  ingredient!: IngredientResponse;
 
   constructor(private ingredientCardsService: IngredientCardsService,
               private router: Router,
               private route: ActivatedRoute,
               private dialogDelete: MatDialog) {
 
+    const ingredientId = this.route.snapshot.params['id'];
+    this.ingredientCardsService.getIngredientById(ingredientId).subscribe((res: IngredientResponse) => {
+      this.ingredient = res;
+    });
   }
 
   onSave(ingredient: IngredientResponse) {
-    this.ingredientCardsService.putIngredient(ingredient.id, {image : ingredient.image, id:ingredient.id,
-                                        name:ingredient.name,categoryId:ingredient.category.id}).subscribe();
+    this.ingredientCardsService.putIngredient(ingredient.id,
+      {image : ingredient.image,
+        id:ingredient.id,
+        name:ingredient.name,
+        categoryId:ingredient.category.id
+      }).subscribe();
     this.router.navigateByUrl("ingredients");
+
   }
 
   onDelete(ingredient: IngredientResponse) {
@@ -37,15 +44,37 @@ export class ModifyIngredientComponent implements OnInit {
       width: '750px',
       disableClose : true,
       data: {
+        image: ingredient.image,
         id: ingredient.id,
-        name: ingredient.name,
+        name: ingredient.name
       }
     });
   }
 
   ngOnInit(): void {
-    const ingredientId = this.route.snapshot.params['id'];
-    this.ingredients$ = this.ingredientCardsService.getIngredientById(ingredientId);
     this.categories$ = this.ingredientCardsService.getCategory();
+  }
+
+  onFileUpload(event: any) {
+    const file = event.target.files[0];
+    this.converToBase64(file);
+  }
+
+  converToBase64(file: File) {
+    const imageObs = new Observable((subscriber: Subscriber<string>) => { this.readFile(file, subscriber) })
+
+    imageObs.subscribe((fileImg) => {
+      this.ingredient.image = fileImg;
+    })
+  }
+
+  readFile(file: File, subscriber: Subscriber<any>) {
+    const filereader = new FileReader();
+    filereader.readAsDataURL(file);
+
+    filereader.onload = () => {
+      subscriber.next(filereader.result);
+      subscriber.complete();
+    };
   }
 }

@@ -19,12 +19,12 @@ export class IngredientCardListComponent implements OnInit {
 
   onChange() {
     this.ingredientCards$ = this.ingredientCardsService
-                            .getIngredientsByParameter(this.categorySelected, this.nameSelected);
+      .getIngredientsByParameter(this.categorySelected, this.nameSelected);
   }
 
   ngOnInit(): void {
     this.ingredientCards$ = this.ingredientCardsService
-                            .getIngredientsByParameter(this.categorySelected, this.nameSelected);
+      .getIngredientsByParameter(this.categorySelected, this.nameSelected);
     this.categories$ = this.ingredientCardsService.getCategory();
   }
 }

@@ -9,8 +9,6 @@ export interface Category {
   name: string;
 }
 
-
-
 export interface IngredientPostRequest {
   image: string;
   name: string;
