@@ -14,7 +14,7 @@ import {MatDialog} from "@angular/material/dialog";
 export class ModifyIngredientComponent implements OnInit {
 
   categories$!: Observable<Category[]>;
-  ingredient!: IngredientResponse;
+  ingredient: IngredientResponse = {name:"",id:"", image:"", category: {name:"",id:""}};
 
   constructor(private ingredientCardsService: IngredientCardsService,
               private router: Router,
