@@ -1,8 +1,9 @@
 <div class="recipe-header">
   <div class="recipe-img">
-    <img src="assets/recipes/{{ singleRecipe.id }}.png" alt="{{ singleRecipe.name }}">
+    <img src="assets/recipes/{{ recipeHead.id }}.png" alt="{{ recipeHead.name }}">
   </div>
   <div class="recipe-name">
-    <span>{{singleRecipe.name}}</span>
+    <span>{{recipeHead.name}}</span>
   </div>
 </div>
+{{recipeHead|json}}

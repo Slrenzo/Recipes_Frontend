@@ -1,0 +1,37 @@
+.ingredient {
+  display: flex;
+  width: 150px;
+  height: 210px;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 25px;
+  box-shadow: 2px 2px 9px -2px rgba(0, 0, 0, 0.2);
+  align-items: center;
+
+  .ingredient-img {
+    border-radius: 25px 25px 0 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 125px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .ingredient-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 19px;
+    text-align: center;
+    height: 85px;
+    width: 100%;
+    justify-content: space-evenly;
+
+    .ingredient-unit {
+      color: var(--color-main);
+    }
+  }
+}
