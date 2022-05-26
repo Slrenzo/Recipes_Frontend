@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IngredientsMeasures} from "../../models/single-recipe.model";
+import {Ingredient} from "../../models/ingredient.model";
 
 @Component({
   selector: 'app-recipe-ingredient',
@@ -8,7 +8,7 @@ import {IngredientsMeasures} from "../../models/single-recipe.model";
 })
 export class RecipeIngredientComponent implements OnInit {
 
-  @Input() ingredient!: IngredientsMeasures;
+  @Input() ingredient!: Ingredient;
 
   constructor() { }
 

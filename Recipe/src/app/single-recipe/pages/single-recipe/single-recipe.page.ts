@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {Recipe} from "../../models/recipe.model";
 
 @Component({
   selector: 'app-single-recipe',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingleRecipePage implements OnInit {
 
-  constructor() { }
+  recipe!: Recipe ;
+
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.recipe = this.activatedRoute.snapshot.data['recipe'];
   }
 
 }

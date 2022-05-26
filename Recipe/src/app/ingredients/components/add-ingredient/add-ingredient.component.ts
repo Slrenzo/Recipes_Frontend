@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {IngredientCardsService} from "../../services/ingredient-card.service";
+import {IngredientCardsService} from "../../services/ingredient.service";
 import {Observable, Subscriber} from "rxjs";
 import {Category, IngredientPostRequest} from "../../models/ingredient-card.model";
 import {FormBuilder, FormGroup} from "@angular/forms";

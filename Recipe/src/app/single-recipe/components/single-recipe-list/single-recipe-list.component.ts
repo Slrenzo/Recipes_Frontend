@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Recipe} from "../../models/recipe.model";
 
 @Component({
   selector: 'app-single-recipe-list',
@@ -7,6 +8,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SingleRecipeListComponent implements OnInit {
 
+  @Input() recipe!: Recipe;
 
   constructor() { }
 

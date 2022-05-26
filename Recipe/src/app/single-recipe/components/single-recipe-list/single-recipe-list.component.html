@@ -1,45 +1,6 @@
-
-<app-recipe-header></app-recipe-header>
-<app-recipe-ingredient-list></app-recipe-ingredient-list>
-<app-recipe-step-list></app-recipe-step-list>
-
-<!--<div class="recipe-page" *ngIf="singleRecipe$ | async as singleRecipe">-->
-
-
-<!--  <div class="recipe-info-container">-->
-<!--    <div class="recipe-info">-->
-<!--      <span class="material-symbols-outlined">group</span>-->
-<!--      <div class="recipe-legend">-->
-<!--        <span class="material-symbols-outlined">add</span>-->
-<!--        <span>{{ singleRecipe.number_person }} personnes</span>-->
-<!--        <span class="material-symbols-outlined">remove</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="recipe-info">-->
-<!--      <span class="material-symbols-outlined">timer</span>-->
-<!--      <div class="recipe-legend">-->
-<!--        <span>Temps : {{ singleRecipe.time | time }}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="recipe-info">-->
-<!--      <span class="material-symbols-outlined">list</span>-->
-<!--      <div class="recipe-legend">-->
-<!--        <span>Catégorie : {{singleRecipe.type.name}}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
-
-<!--  <h1>Ingrédients</h1>-->
-<!--  <div class="ingredient-container">-->
-
-<!--  </div>-->
-
-<!--  <h1>Etapes</h1>-->
-<!--  <div class="steps-container">-->
-<!--    <div class="step-box" *ngFor="let step of singleRecipe.steps">-->
-<!--      <span class="step-number">Étape {{step.step_order}}</span>-->
-<!--      {{step.descr}}-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+<div class="recipe-page">
+  <app-recipe-header [recipe]="recipe"></app-recipe-header>
+  <app-recipe-info [recipe]="recipe"></app-recipe-info>
+  <app-recipe-ingredient-list [ingredients]="recipe.ingredients"></app-recipe-ingredient-list>
+  <app-recipe-step-list [steps]="recipe.steps"></app-recipe-step-list>
+</div>

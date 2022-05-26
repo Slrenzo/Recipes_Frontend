@@ -1,0 +1,9 @@
+.step-box {
+  display: flex;
+  flex-direction: column;
+
+  .step-number {
+    font-size: 23px;
+    font-weight: normal;
+  }
+}

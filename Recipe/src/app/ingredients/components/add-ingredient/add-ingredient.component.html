@@ -4,9 +4,7 @@
     <div class="add-image-container">
       <span class="subtitle">Choisir une image</span>
       <div class="add-img">
-        <div class="ingredient-img">
-          <img [src]="image" alt="add">
-        </div>
+        <img [src]="image" alt="add">
       </div>
       <input type="file" (change)="onFileUpload($event)">
     </div>

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable, Subscriber} from "rxjs";
 import {Category, IngredientResponse} from "../../models/ingredient-card.model";
-import {IngredientCardsService} from "../../services/ingredient-card.service";
+import {IngredientCardsService} from "../../services/ingredient.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DialogDeleteIngredientComponent} from "../dialog-delete-ingredient/dialog-delete-ingredient.component";
 import {MatDialog} from "@angular/material/dialog";
@@ -14,7 +14,7 @@ import {MatDialog} from "@angular/material/dialog";
 export class ModifyIngredientComponent implements OnInit {
 
   categories$!: Observable<Category[]>;
-  ingredient: IngredientResponse = {name:"",id:"", image:"", category: {name:"",id:""}};
+  ingredient!: IngredientResponse;
 
   constructor(private ingredientCardsService: IngredientCardsService,
               private router: Router,
@@ -22,6 +22,7 @@ export class ModifyIngredientComponent implements OnInit {
               private dialogDelete: MatDialog) {
 
     const ingredientId = this.route.snapshot.params['id'];
+    console.log(ingredientId)
     this.ingredientCardsService.getIngredientById(ingredientId).subscribe((res: IngredientResponse) => {
       this.ingredient = res;
     });

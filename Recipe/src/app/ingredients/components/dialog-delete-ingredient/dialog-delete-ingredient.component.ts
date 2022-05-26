@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
-import {IngredientCardsService} from "../../services/ingredient-card.service";
+import {IngredientCardsService} from "../../services/ingredient.service";
 import {Observable} from "rxjs";
 import {Category} from "../../models/ingredient-card.model";
 import {Router} from "@angular/router";

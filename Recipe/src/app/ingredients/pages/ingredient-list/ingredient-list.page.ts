@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {IngredientResponse} from "../../models/ingredient-card.model";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-ingredient-list',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IngredientListPage implements OnInit {
 
-  constructor() { }
+  ingredients: IngredientResponse[] = [];
+
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.ingredients = this.activatedRoute.snapshot.data['ingredients'];
   }
 
 }

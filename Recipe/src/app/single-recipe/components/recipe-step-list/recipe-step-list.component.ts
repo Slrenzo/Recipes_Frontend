@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import {Step} from "../../models/step.model";
 
 @Component({
   selector: 'app-recipe-step-list',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-step-list.component.scss']
 })
 export class RecipeStepListComponent implements OnInit {
+
+  @Input() steps : Step[] = [];
 
   constructor() { }
 

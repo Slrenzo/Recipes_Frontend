@@ -9,6 +9,7 @@ import { RecipeIngredientComponent } from './components/recipe-ingredient/recipe
 import { RecipeIngredientListComponent } from './components/recipe-ingredient-list/recipe-ingredient-list.component';
 import { RecipeStepComponent } from './components/recipe-step/recipe-step.component';
 import { RecipeStepListComponent } from './components/recipe-step-list/recipe-step-list.component';
+import {RecipeInfoComponent} from "./components/recipe-info/recipe-info.component";
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { RecipeStepListComponent } from './components/recipe-step-list/recipe-st
     RecipeIngredientListComponent,
     RecipeStepComponent,
     RecipeStepListComponent,
+    RecipeInfoComponent
 
   ],
   imports: [

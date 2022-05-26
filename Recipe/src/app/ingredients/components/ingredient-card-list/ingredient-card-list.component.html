@@ -25,6 +25,6 @@
     </div>
   </div>
 
-  <app-ingredient-card *ngFor="let ingredientCard of ingredientCards$ | async" [ingredient]="ingredientCard">
+  <app-ingredient-card *ngFor="let ingredient of ingredients" [ingredient]="ingredient">
   </app-ingredient-card>
 </div>

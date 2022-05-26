@@ -16,10 +16,11 @@
       align-items: center;
       gap: 10px;
 
-      .ingredient-img {
+      .add-img {
         display: flex;
         width: 350px;
         height: 350px;
+        overflow: hidden;
 
         img {
           border-radius: 15px;

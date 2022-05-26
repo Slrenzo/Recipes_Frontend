@@ -1,1 +1,3 @@
-<!--<app-recipe-ingredient *ngfor="let ingredients of ingredients$ | async" [ingredient]="ingredients"></app-recipe-ingredient>-->
+<div class="ingredient-container">
+  <app-recipe-ingredient *ngFor="let ingredient of ingredients" [ingredient]="ingredient"></app-recipe-ingredient>
+</div>
