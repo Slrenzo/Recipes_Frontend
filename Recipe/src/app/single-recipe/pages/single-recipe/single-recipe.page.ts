@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {Recipe} from "../../models/recipe.model";
+import {SingleRecipe} from "../../models/recipe.model";
 
 @Component({
   selector: 'app-single-recipe',
@@ -9,7 +9,7 @@ import {Recipe} from "../../models/recipe.model";
 })
 export class SingleRecipePage implements OnInit {
 
-  recipe!: Recipe ;
+  recipe!: SingleRecipe ;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 

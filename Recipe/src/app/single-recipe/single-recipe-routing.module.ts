@@ -8,7 +8,8 @@ const routes: Routes = [
     component : SingleRecipePage,
     resolve: {
       recipe: SingleRecipesResolver
-    }},
+    }
+  }
 ];
 
 @NgModule({

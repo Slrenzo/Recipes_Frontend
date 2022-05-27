@@ -3,7 +3,7 @@
   <app-recipe-info [recipe]="recipe"></app-recipe-info>
   <app-recipe-ingredient-list [ingredients]="recipe.ingredients"></app-recipe-ingredient-list>
   <app-recipe-step-list [steps]="recipe.steps"></app-recipe-step-list>
-  <button class="modify-button" (click)="onModify(recipe)">
+  <button class="modify-button" routerLink="modify">
     <span class="material-symbols-outlined">edit</span>
     Modifier
   </button>

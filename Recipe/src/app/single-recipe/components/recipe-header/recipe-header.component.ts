@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Recipe} from "../../models/recipe.model";
+import {SingleRecipe} from "../../models/recipe.model";
 
 @Component({
   selector: 'app-recipe-header',
@@ -8,7 +8,7 @@ import {Recipe} from "../../models/recipe.model";
 })
 export class RecipeHeaderComponent implements OnInit {
 
-  @Input() recipe!: Recipe;
+  @Input() recipe!: SingleRecipe;
 
   constructor() { }
 

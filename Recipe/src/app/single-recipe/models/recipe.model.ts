@@ -1,7 +1,7 @@
 import {Ingredient, IngredientRequest} from "./ingredient.model";
 import {Step, StepRequest} from "./step.model";
 
-export interface Recipe {
+export interface SingleRecipe {
   id: string;
   name: string;
   time: number;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Recipe} from "../../../single-recipe/models/recipe.model";
+import {SingleRecipe} from "../../../single-recipe/models/recipe.model";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -9,7 +9,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class HomePagePage implements OnInit {
 
-  recipes: Recipe[] = [] ;
+  recipes: SingleRecipe[] = [] ;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 

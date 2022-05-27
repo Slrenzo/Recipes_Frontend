@@ -11,7 +11,7 @@ const routes: Routes = [
     resolve: { ingredients: IngredientsResolver }
   },
   {path: 'add', component: AddIngredientComponent},
-  {path: ':id', component: ModifyIngredientComponent,
+  {path: ':id/modify', component: ModifyIngredientComponent,
   }
 ];
 

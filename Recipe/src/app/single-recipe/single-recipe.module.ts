@@ -10,6 +10,7 @@ import { RecipeIngredientListComponent } from './components/recipe-ingredient-li
 import { RecipeStepComponent } from './components/recipe-step/recipe-step.component';
 import { RecipeStepListComponent } from './components/recipe-step-list/recipe-step-list.component';
 import {RecipeInfoComponent} from "./components/recipe-info/recipe-info.component";
+import { ModifyRecipeComponent } from '../recipes/components/modify-recipe/modify-recipe.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {RecipeInfoComponent} from "./components/recipe-info/recipe-info.componen
     RecipeIngredientListComponent,
     RecipeStepComponent,
     RecipeStepListComponent,
-    RecipeInfoComponent
+    RecipeInfoComponent,
+    ModifyRecipeComponent
   ],
   imports: [
     CommonModule,

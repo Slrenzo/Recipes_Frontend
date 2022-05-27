@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Recipe} from "../../models/recipe.model";
+import {SingleRecipe} from "../../models/recipe.model";
 
 @Component({
   selector: 'app-single-recipe-list',
@@ -8,13 +8,10 @@ import {Recipe} from "../../models/recipe.model";
 })
 export class SingleRecipeListComponent implements OnInit {
 
-  @Input() recipe!: Recipe;
+  @Input() recipe!: SingleRecipe;
 
   constructor() { }
 
   ngOnInit(): void { }
 
-  onModify(recipe: Recipe) {
-
-  }
 }
