@@ -6,3 +6,9 @@ export interface Ingredient {
   unit : string;
   image: string;
 }
+
+export interface IngredientRequest {
+  ingredientId: string;
+  quantity: number;
+  unit : string;
+}

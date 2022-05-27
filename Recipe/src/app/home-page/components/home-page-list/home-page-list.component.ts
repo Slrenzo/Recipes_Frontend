@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Observable} from "rxjs";
-import {Recipe, Type} from "../../models/home-page.model";
-import {HomePageService} from "../../services/home-page.service";
+import {Component, Input, OnInit} from '@angular/core';
+import {Recipe} from "../../models/home-page.model";
 
 @Component({
   selector: 'app-home-page-list',
@@ -10,13 +8,10 @@ import {HomePageService} from "../../services/home-page.service";
 })
 export class HomePageListComponent implements OnInit {
 
-  recipeCards$!: Observable<Recipe[]>;
-  types$!: Observable<Type[]>;
+  @Input() recipes: Recipe[] = [];
 
-  constructor(private homePageService: HomePageService) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.recipeCards$ = this.homePageService.getAllRecipeCard();
-  }
+  ngOnInit(): void { }
 
 }

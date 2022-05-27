@@ -11,10 +11,9 @@ export class HomePageService {
 
   constructor(private http: HttpClient) {}
 
-  getAllRecipeCard(): Observable<Recipe[]> {
-    return this.http.get<Recipe[]>('http://localhost:8080/');
+  getAllRecipe(): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(`http://localhost:8080/`);
   }
-
 }
 
 

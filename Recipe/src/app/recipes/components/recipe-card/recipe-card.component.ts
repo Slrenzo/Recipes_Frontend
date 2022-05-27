@@ -10,13 +10,13 @@ import {Router} from "@angular/router";
 
 export class RecipeCardComponent implements OnInit {
 
-  @Input() recipeCard!: Recipe;
+  @Input() recipe!: Recipe;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void { }
 
   onViewRecipe() {
-    this.router.navigateByUrl(`recipes/${this.recipeCard.id}`)
+    this.router.navigateByUrl(`recipes/${this.recipe.id}`)
   }
 }

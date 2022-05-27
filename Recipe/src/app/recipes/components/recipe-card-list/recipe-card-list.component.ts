@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {Recipe, Type} from "../../models/recipe-card.model";
-import {RecipeCardsService} from "../../services/recipe-card.service";
 
 @Component({
   selector: 'app-recipe-card-list',
@@ -10,22 +9,18 @@ import {RecipeCardsService} from "../../services/recipe-card.service";
 })
 export class RecipeCardListComponent implements OnInit {
 
-  recipeCards$!: Observable<Recipe[]>;
+  @Input() recipes: Recipe[] = [];
+  // -------------------------------------------------
+  // Les types doivent passer par un resolver ???????
+  // -------------------------------------------------
   types$!: Observable<Type[]>;
 
   typeSelected!: string;
   nameSelected!: string;
 
-  constructor(private recipeCardsService: RecipeCardsService) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.recipeCards$ = this.recipeCardsService
-                        .getRecipesByParameter(this.typeSelected, this.nameSelected);
-    this.types$ = this.recipeCardsService.getTypesRecipe();
-  }
+  ngOnInit(): void { }
 
-  onChange() {
-    this.recipeCards$ = this.recipeCardsService
-                        .getRecipesByParameter(this.typeSelected, this.nameSelected);
-  }
+  onChange() { }
 }

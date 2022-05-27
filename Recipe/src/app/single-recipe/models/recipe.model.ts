@@ -1,5 +1,5 @@
-import { Ingredient } from "./ingredient.model";
-import { Step } from "./step.model";
+import {Ingredient, IngredientRequest} from "./ingredient.model";
+import {Step, StepRequest} from "./step.model";
 
 export interface Recipe {
   id: string;
@@ -14,4 +14,15 @@ export interface Recipe {
 export interface Type {
   id: string;
   name: string;
+}
+
+export interface RecipeRequest {
+  id: string;
+  name: string;
+  people: number;
+  time: number;
+  image: string;
+  type: string;
+  ingredients: IngredientRequest[];
+  steps: StepRequest[];
 }
