@@ -17,6 +17,9 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     RecipeCardComponent,
     RecipeCardListComponent
   ],
+  exports: [
+    RecipeCardComponent
+  ],
   imports: [
     CommonModule,
     RecipesRoutingModule,

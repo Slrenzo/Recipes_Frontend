@@ -13,4 +13,8 @@ export class SingleRecipeListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void { }
+
+  onModify(recipe: Recipe) {
+
+  }
 }

@@ -4,4 +4,5 @@ export interface Ingredient {
   category: string;
   quantity: number;
   unit : string;
+  image: string;
 }

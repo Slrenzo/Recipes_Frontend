@@ -10,7 +10,6 @@ export interface Recipe {
   steps: Step[];
   people: number;
   image: string;
-
 }
 export interface Type {
   id: string;

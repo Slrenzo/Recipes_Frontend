@@ -28,11 +28,11 @@
       text-decoration: none;
       text-align: center;
       &:hover {
-        text-decoration: underline;
+        font-weight: 500;
       }
     }
     .active {
-      text-decoration: underline;
+      font-weight: 500;
     }
   }
 }

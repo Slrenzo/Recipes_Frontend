@@ -11,7 +11,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class IngredientCardListComponent implements OnInit {
 
-  ingredientCards$!: Observable<IngredientResponse[]>;
   categories$!: Observable<Category[]>;
   categorySelected!: string;
   nameSelected!: string;

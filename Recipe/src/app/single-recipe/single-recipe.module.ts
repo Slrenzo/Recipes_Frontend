@@ -11,7 +11,6 @@ import { RecipeStepComponent } from './components/recipe-step/recipe-step.compon
 import { RecipeStepListComponent } from './components/recipe-step-list/recipe-step-list.component';
 import {RecipeInfoComponent} from "./components/recipe-info/recipe-info.component";
 
-
 @NgModule({
   declarations: [
     SingleRecipePage,
@@ -22,7 +21,6 @@ import {RecipeInfoComponent} from "./components/recipe-info/recipe-info.componen
     RecipeStepComponent,
     RecipeStepListComponent,
     RecipeInfoComponent
-
   ],
   imports: [
     CommonModule,
