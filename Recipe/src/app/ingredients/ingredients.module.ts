@@ -13,6 +13,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonModule} from "@angular/material/button";
 import { DialogDeleteIngredientComponent } from './components/dialog-delete-ingredient/dialog-delete-ingredient.component';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -23,17 +24,18 @@ import { DialogDeleteIngredientComponent } from './components/dialog-delete-ingr
     AddIngredientComponent,
     DialogDeleteIngredientComponent,
   ],
-  imports: [
-    CommonModule,
-    IngredientsRoutingModule,
-    MatDialogModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatSelectModule,
-    MatButtonModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        CommonModule,
+        IngredientsRoutingModule,
+        MatDialogModule,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        MatSelectModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        MatIconModule
+    ],
   entryComponents: [
     ModifyIngredientComponent,
     AddIngredientComponent,

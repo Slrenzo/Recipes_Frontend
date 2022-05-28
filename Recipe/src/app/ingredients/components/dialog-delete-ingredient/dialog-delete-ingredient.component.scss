@@ -3,26 +3,44 @@
   flex-direction: column;
   align-content: center;
   width: 100%;
-  gap: 25px;
+  height: 100%;
 
   .dialog-title {
-    text-align: center;
     font-size: 25px;
+    color: #243569;
   }
-
-  .dialog-content {
+  .mat-dialog-content {
     display: flex;
-    gap: 30px;
-    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    gap: 20px;
 
-    .dialog-img {
+    .dialog-content {
+      display: flex;
+      gap: 30px;
 
-      img {
+      .dialog-img {
+        width: 256px;
+        height: 256px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
         border-radius: 15px;
       }
     }
+
+    .field {
+      width: 300px;
+    }
   }
-  .button-box {
-    width: 100%;
+
+  .mat-dialog-actions {
+    display: flex;
+    height: 116px;
+
+    .button-box {
+      width: 100%;
+      justify-content: space-between;
+    }
   }
 }

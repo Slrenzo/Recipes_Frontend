@@ -3,38 +3,40 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 
   .add-box {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 30px;
+    justify-content: center;
 
     .add-image-container {
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 10px;
 
       .add-img {
-        display: flex;
         width: 350px;
         height: 350px;
         overflow: hidden;
-
-        img {
-          border-radius: 15px;
-          min-width: 100%;
-          min-height: 100%;
-        }
+        display: flex;
+        justify-content: center;
+        border-radius: 15px;
       }
     }
 
     .add-info {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
 
       form {
         display: flex;
         flex-direction: column;
+
+        .field {
+          width: 300px;
+        }
       }
     }
 

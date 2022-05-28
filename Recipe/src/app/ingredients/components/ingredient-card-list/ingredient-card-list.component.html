@@ -1,5 +1,11 @@
 <div class="filter-container">
-  <mat-form-field appearance="fill">
+  <mat-form-field class="search" appearance="outline">
+    <mat-label>Rechercher un ingrédient</mat-label>
+    <input matInput (change)="onChange()" [(ngModel)]="nameSelected">
+    <mat-icon matPrefix>search</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
     <mat-label>Filtrer les ingrédients</mat-label>
     <mat-select [(value)]="categorySelected" (valueChange)="onChange()">
       <mat-option></mat-option>
@@ -7,11 +13,6 @@
         {{ category.name}}
       </mat-option>
     </mat-select>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Rechercher un ingrédient</mat-label>
-    <input matInput (change)="onChange()" [(ngModel)]="nameSelected">
   </mat-form-field>
 </div>
 

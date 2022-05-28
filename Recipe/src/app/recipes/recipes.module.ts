@@ -9,6 +9,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -20,14 +21,15 @@ import {MatFormFieldModule} from "@angular/material/form-field";
   exports: [
     RecipeCardComponent
   ],
-  imports: [
-    CommonModule,
-    RecipesRoutingModule,
-    SharedModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatSelectModule
-  ]
+    imports: [
+        CommonModule,
+        RecipesRoutingModule,
+        SharedModule,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        MatSelectModule,
+        MatIconModule
+    ]
 })
 export class RecipesModule { }

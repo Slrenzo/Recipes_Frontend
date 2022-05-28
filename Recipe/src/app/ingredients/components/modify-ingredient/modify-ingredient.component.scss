@@ -1,42 +1,43 @@
-.delete-box {
-  display: flex;
-  justify-content: center;
-}
-
-.ingredient-box {
+.modify-ingredient {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 
-  .ingredient-img-container {
+  .ingredient-box {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    gap: 30px;
+    justify-content: center;
 
-    .ingredient-img {
+    .ingredient-img-container {
       display: flex;
       flex-direction: column;
-      width: 350px;
-      height: 350px;
+      gap: 10px;
 
-      img {
+      .ingredient-img {
+        width: 350px;
+        height: 350px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
         border-radius: 15px;
       }
     }
-  }
 
-  .ingredient-info-box {
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    align-items: center;
-  }
+    .ingredient-info-box {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
 
+      .field {
+        width: 300px;
+      }
+    }
+  }
   .button-box {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     gap: 50px;
   }
 }

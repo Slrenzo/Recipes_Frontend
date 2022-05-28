@@ -1,5 +1,11 @@
 <div class="filter-container">
-  <mat-form-field appearance="fill">
+  <mat-form-field class="search" appearance="outline">
+    <mat-label>Rechercher une recette</mat-label>
+    <input matInput (change)="onChange()" [(ngModel)]="nameSelected">
+    <mat-icon matPrefix>search</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
     <mat-label>Filtrer les recettes</mat-label>
     <mat-select [(value)]="typeSelected" (valueChange)="onChange()">
       <mat-option></mat-option>
@@ -8,12 +14,8 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Rechercher une recette</mat-label>
-    <input matInput (change)="onChange()" [(ngModel)]="nameSelected">
-  </mat-form-field>
 </div>
+
 <div class="child-container">
   <div class="add-recipe-card" routerLink="add">
     <div class="add-recipe-header">

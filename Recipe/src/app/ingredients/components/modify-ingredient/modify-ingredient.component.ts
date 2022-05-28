@@ -30,7 +30,8 @@ export class ModifyIngredientComponent implements OnInit {
 
   onSave(ingredient: IngredientResponse) {
     this.ingredientCardsService.putIngredient(ingredient.id,
-      {image : ingredient.image,
+      {
+        image : ingredient.image,
         id:ingredient.id,
         name:ingredient.name,
         categoryId:ingredient.category.id

@@ -1,28 +1,29 @@
-<div class="delete-box">
+<div class="modify-ingredient">
   <h1>Modifier un ingrédient</h1>
-</div>
-<div class="ingredient-box">
-  <div class="ingredient-img-container">
-    <span class="subtitle">Choisir une image</span>
-    <div class="ingredient-img">
-      <img [src]="ingredient.image" alt="{{ingredient.name}}">
+  <div class="ingredient-box">
+    <div class="ingredient-img-container">
+      <span class="subtitle">Image</span>
+      <div class="ingredient-img">
+        <img [src]="ingredient.image" alt="{{ingredient.name}}">
+      </div>
+      <input type="file" (change)="onFileUpload($event)">
     </div>
-    <input type="file" (change)="onFileUpload($event)">
-  </div>
-  <div class="ingredient-info-box">
-    <span class="subtitle">Informations</span>
-    <mat-form-field appearance="fill">
-      <mat-label>Nom</mat-label>
-      <input required matInput value="{{ingredient.name}}" [(ngModel)]="ingredient.name" >
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Catégorie</mat-label>
-      <mat-select [(ngModel)]="ingredient.category.id">
-        <mat-option *ngFor="let category of categories$ | async" [value]="category.id">
-          {{ category.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div class="ingredient-info-box">
+      <span class="subtitle">Informations</span>
+      <mat-form-field class="field" appearance="outline">
+        <mat-label>Nom</mat-label>
+        <input maxlength="40" required matInput value="{{ingredient.name}}" [(ngModel)]="ingredient.name" >
+      </mat-form-field>
+      <mat-form-field class="field" appearance="outline">
+        <mat-label>Catégorie</mat-label>
+        <mat-select [(ngModel)]="ingredient.category.id">
+          <mat-option *ngFor="let category of categories$ | async" [value]="category.id">
+            {{ category.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
 
   </div>
   <div class="button-box">
@@ -33,7 +34,6 @@
     <button class="confirm-button" (click)="onSave(ingredient)">Valider</button>
   </div>
 </div>
-
 
 
 

@@ -9,15 +9,12 @@
   cursor: pointer;
 
   .ingredient-img {
-    overflow: hidden;
-    border-radius: 25px 0 0 25px;
-    height: 90px;
     width: 90px;
+    height: 90px;
+    overflow: hidden;
     display: flex;
+    border-radius: 25px 0 0 25px;
 
-    img {
-      width: 100%;
-    }
   }
 
   .ingredient-text {
