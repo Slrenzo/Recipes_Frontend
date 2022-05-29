@@ -1,5 +1,5 @@
 <div class="add-container">
-  <h1>Ajouter un ingrédient</h1>
+  <span class="title">Ajouter un ingrédient</span>
   <div class="add-box">
     <div class="add-image-container">
       <span class="subtitle">Choisir une image</span>
@@ -29,7 +29,7 @@
   </div>
 
   <div class="button-box">
-    <button class="delete-button" routerLink="/ingredients">Annuler</button>
+    <button class="cancel-button" routerLink="/ingredients">Annuler</button>
     <button class="confirm-button" [disabled]="ingredientForm.invalid" (click)="onSubmitForm()">Valider</button>
   </div>
 </div>

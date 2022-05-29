@@ -8,17 +8,14 @@
         <img [src]="data.image" alt="{{data.name}}">
       </div>
       <div class="dialog-info">
-        <mat-form-field class="field" appearance="outline">
-          <mat-label>Nom</mat-label>
-          <input disabled matInput value="{{data.name}}">
-        </mat-form-field>
+        <span class="subtitle">{{data.name}}</span>
       </div>
     </div>
   </mat-dialog-content>
 
   <mat-dialog-actions>
     <div class="button-box">
-      <button class="delete-button" mat-dialog-close="">Annuler</button>
+      <button class="cancel-button" mat-dialog-close="">Annuler</button>
       <button class="confirm-button" (click)="onDelete(data)">Valider</button>
     </div>
   </mat-dialog-actions>

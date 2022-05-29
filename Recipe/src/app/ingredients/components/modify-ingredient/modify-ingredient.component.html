@@ -1,5 +1,7 @@
 <div class="modify-ingredient">
-  <h1>Modifier un ingrédient</h1>
+  <div>
+    <span class="title">Modifier un ingrédient</span>
+  </div>
   <div class="ingredient-box">
     <div class="ingredient-img-container">
       <span class="subtitle">Image</span>
@@ -22,15 +24,15 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-
+      <button class="delete-button" (click)="onDelete(ingredient)">
+        <span class="material-symbols-outlined">delete_forever</span>
+        Supprimer
+      </button>
     </div>
 
   </div>
   <div class="button-box">
-    <button class="delete-button" (click)="onDelete(ingredient)">
-      <span class="material-symbols-outlined">delete_forever</span>
-      Supprimer
-    </button>
+    <button class="cancel-button" routerLink="/ingredients">Annuler</button>
     <button class="confirm-button" (click)="onSave(ingredient)">Valider</button>
   </div>
 </div>

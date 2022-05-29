@@ -39,6 +39,12 @@ body {
   font-size: 18px;
 }
 
+.title {
+  color: #243569;
+  font-size: 28px;
+}
+
+
 .button-box {
   display: flex;
   justify-content: space-around;
@@ -68,8 +74,14 @@ button {
   &.delete-button {
     justify-content: space-evenly;
     color: white;
-    background: #ef0721;
+    background: #eb162e;
 
+  }
+  &.cancel-button {
+    color: #243569;
+    background: none;
+    border: solid 2px #243569;
+    justify-content: center;
   }
   &.modify-button {
     background: #243569;
