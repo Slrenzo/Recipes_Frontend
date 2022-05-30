@@ -5,6 +5,8 @@ import {IngredientCardsService} from "../../services/ingredient.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DialogDeleteIngredientComponent} from "../dialog-delete-ingredient/dialog-delete-ingredient.component";
 import {MatDialog} from "@angular/material/dialog";
+import {SnackBarService} from "../../../snack-bar.service";
+import {ImageService} from "../../../image.service";
 
 @Component({
   selector: 'app-dialog-modify',
@@ -19,7 +21,9 @@ export class ModifyIngredientComponent implements OnInit {
   constructor(private ingredientCardsService: IngredientCardsService,
               private router: Router,
               private route: ActivatedRoute,
-              private dialogDelete: MatDialog) {
+              private dialogDelete: MatDialog,
+              private snackBarService: SnackBarService,
+              private imageService: ImageService) {
 
     const ingredientId = this.route.snapshot.params['id'];
     console.log(ingredientId)
@@ -35,9 +39,15 @@ export class ModifyIngredientComponent implements OnInit {
         id:ingredient.id,
         name:ingredient.name,
         categoryId:ingredient.category.id
-      }).subscribe();
+      }).subscribe({
+      next: () => {
+        this.snackBarService.openSnackBar('Modification réussie.');
+      },
+      error: () => {
+        this.snackBarService.openErrorSnackBar('Erreur lors de la modification.');
+      }
+    });
     this.router.navigateByUrl("ingredients");
-
   }
 
   onDelete(ingredient: IngredientResponse) {
@@ -59,24 +69,6 @@ export class ModifyIngredientComponent implements OnInit {
 
   onFileUpload(event: any) {
     const file = event.target.files[0];
-    this.converToBase64(file);
-  }
-
-  converToBase64(file: File) {
-    const imageObs = new Observable((subscriber: Subscriber<string>) => { this.readFile(file, subscriber) })
-
-    imageObs.subscribe((fileImg) => {
-      this.ingredient.image = fileImg;
-    })
-  }
-
-  readFile(file: File, subscriber: Subscriber<any>) {
-    const filereader = new FileReader();
-    filereader.readAsDataURL(file);
-
-    filereader.onload = () => {
-      subscriber.next(filereader.result);
-      subscriber.complete();
-    };
+    this.ingredient.image = this.imageService.converToBase64(file);
   }
 }

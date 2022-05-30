@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {IngredientCardsService} from "../../services/ingredient.service";
-import {Observable, Subscriber} from "rxjs";
+import {Observable} from "rxjs";
 import {Category, IngredientPostRequest} from "../../models/ingredient-card.model";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import { Router } from '@angular/router';
+import {ImageService} from "../../../image.service";
+import {SnackBarService} from "../../../snack-bar.service";
 
 @Component({
   selector: 'app-dialog-add-ingredient',
@@ -20,7 +22,9 @@ export class AddIngredientComponent implements OnInit {
 
   constructor(private ingredientCardsService: IngredientCardsService,
               private router: Router,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private imageService: ImageService,
+              private snackBarService: SnackBarService) { }
 
   onSubmitForm() {
     console.log(this.image);
@@ -28,33 +32,20 @@ export class AddIngredientComponent implements OnInit {
       image: this.image,
       name: this.ingredientForm.value.name,
       categoryId: this.ingredientForm.value.categoryId
-    }).subscribe();
+    }).subscribe({
+      next: () => {
+        this.snackBarService.openSnackBar('Ajout réussi.');
+      },
+      error: () => {
+        this.snackBarService.openErrorSnackBar("Erreur lors de l'ajout.");
+      }
+    });
     this.router.navigateByUrl("ingredients");
   }
 
   onFileUpload(event: any) {
     const file = event.target.files[0];
-    this.converToBase64(file);
-  }
-
-  converToBase64(file: File) {
-    const imageObs = new Observable((subscriber: Subscriber<string>) => {
-      this.readFile(file, subscriber)
-    })
-
-    imageObs.subscribe((fileImg) => {
-      this.image = fileImg;
-    })
-  }
-
-  readFile(file: File, subscriber: Subscriber<any>) {
-    const filereader = new FileReader();
-    filereader.readAsDataURL(file);
-
-    filereader.onload = () => {
-      subscriber.next(filereader.result);
-      subscriber.complete();
-    };
+    //this.image = this.imageService.converToBase64(file);
   }
 
   ngOnInit(): void {

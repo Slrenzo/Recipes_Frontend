@@ -21,15 +21,15 @@ import {MatIconModule} from "@angular/material/icon";
   exports: [
     RecipeCardComponent
   ],
-    imports: [
-        CommonModule,
-        RecipesRoutingModule,
-        SharedModule,
-        MatInputModule,
-        MatFormFieldModule,
-        FormsModule,
-        MatSelectModule,
-        MatIconModule
-    ]
+  imports: [
+    CommonModule,
+    RecipesRoutingModule,
+    SharedModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatSelectModule,
+    MatIconModule,
+  ]
 })
 export class RecipesModule { }

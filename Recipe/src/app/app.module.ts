@@ -6,6 +6,7 @@ import { appRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddRecipeComponent } from './recipes/components/add-recipe/add-recipe.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -13,12 +14,13 @@ import { AddRecipeComponent } from './recipes/components/add-recipe/add-recipe.c
     NavbarComponent,
     AddRecipeComponent,
   ],
-    imports: [
-        BrowserModule,
-        appRoutingModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-    ],
+  imports: [
+    BrowserModule,
+    appRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -4,8 +4,7 @@ import {IngredientCardsService} from "../../services/ingredient.service";
 import {Observable} from "rxjs";
 import {Category} from "../../models/ingredient-card.model";
 import {Router} from "@angular/router";
-import {MatSnackBar} from "@angular/material/snack-bar";
-
+import {SnackBarService} from "../../../snack-bar.service";
 
 @Component({
   selector: 'app-dialog-delete-ingredient',
@@ -20,36 +19,21 @@ export class DialogDeleteIngredientComponent implements OnInit {
               private ingredientCardsService: IngredientCardsService,
               private router: Router,
               private dialogRef: MatDialog,
-              private snackBar: MatSnackBar) { }
-
-  ngOnInit(): void { }
-
-  openErrorSnackBar(message: string) {
-    this.snackBar.open(message, "",{
-      duration: 7000,
-      panelClass: ['error-snackbar']
-    });
-  }
-
-  openSnackBar(message: string) {
-    this.snackBar.open(message, "",{
-      duration: 7000,
-      panelClass: ['valid-snackbar']
-    });
-  }
+              private snackBarService: SnackBarService) { }
 
   onDelete(result: any) {
-
     this.ingredientCardsService.deleteIngredient(result.id).subscribe({
       next: () => {
-        this.openSnackBar('Suppression réussie.');
+        this.snackBarService.openSnackBar('Suppression réussie.');
       },
       error: () => {
-        this.openErrorSnackBar('Erreur lors de la suppression.');
+        this.snackBarService.openErrorSnackBar('Erreur lors de la suppression.');
       }
     });
 
     this.dialogRef.closeAll();
     this.router.navigateByUrl("ingredients");
   }
+
+  ngOnInit(): void { }
 }

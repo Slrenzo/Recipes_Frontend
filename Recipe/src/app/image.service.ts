@@ -4,28 +4,25 @@ import {Observable, Subscriber} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-
 export class ImageService {
 
-  onFileUpload(event: any) {
-    const file = event.target.files[0];
-    this.converToBase64(file);
-  }
+  images!: string;
 
-  converToBase64(file: File) {
+  converToBase64(file: File): string  {
     const imageObs = new Observable((subscriber: Subscriber<string>) => {
       this.readFile(file, subscriber)
     })
 
-    imageObs.subscribe((fileImg) => {
-      return fileImg;
+    imageObs.subscribe(fileImg => {
+      this.images = fileImg
     })
+
+    return this.images;
   }
 
   readFile(file: File, subscriber: Subscriber<any>) {
     const filereader = new FileReader();
     filereader.readAsDataURL(file);
-
     filereader.onload = () => {
       subscriber.next(filereader.result);
       subscriber.complete();
