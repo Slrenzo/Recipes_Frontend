@@ -14,6 +14,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonModule} from "@angular/material/button";
 import { DialogDeleteIngredientComponent } from './components/dialog-delete-ingredient/dialog-delete-ingredient.component';
 import {MatIconModule} from "@angular/material/icon";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -22,20 +23,21 @@ import {MatIconModule} from "@angular/material/icon";
     IngredientCardListComponent,
     ModifyIngredientComponent,
     AddIngredientComponent,
-    DialogDeleteIngredientComponent,
+    DialogDeleteIngredientComponent
   ],
-    imports: [
-        CommonModule,
-        IngredientsRoutingModule,
-        MatDialogModule,
-        MatInputModule,
-        MatFormFieldModule,
-        FormsModule,
-        MatSelectModule,
-        MatButtonModule,
-        ReactiveFormsModule,
-        MatIconModule
-    ],
+  imports: [
+    CommonModule,
+    IngredientsRoutingModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatSelectModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatSnackBarModule
+  ],
   entryComponents: [
     ModifyIngredientComponent,
     AddIngredientComponent,
