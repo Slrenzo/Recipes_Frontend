@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable, Subscriber} from "rxjs";
+import {Observable} from "rxjs";
 import {Category, IngredientResponse} from "../../models/ingredient-card.model";
 import {IngredientCardsService} from "../../services/ingredient.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -69,6 +69,6 @@ export class ModifyIngredientComponent implements OnInit {
 
   onFileUpload(event: any) {
     const file = event.target.files[0];
-    this.ingredient.image = this.imageService.converToBase64(file);
+    this.imageService.readFile(file).then(i => this.ingredient.image = i?.toString() ?? '');
   }
 }

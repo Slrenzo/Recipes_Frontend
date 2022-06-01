@@ -1,22 +1,22 @@
-<div class="filter-container">
-  <mat-form-field class="search" appearance="outline">
-    <mat-label>Rechercher un ingrédient</mat-label>
-    <input matInput (change)="onChange()" [(ngModel)]="nameSelected">
-    <mat-icon matPrefix>search</mat-icon>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Filtrer les ingrédients</mat-label>
-    <mat-select [(value)]="categorySelected" (valueChange)="onChange()">
-      <mat-option></mat-option>
-      <mat-option *ngFor="let category of categories$ | async" [value]="category.id">
-        {{ category.name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
-
 <div class="child-container">
+  <div class="filter-container">
+    <mat-form-field class="search" appearance="outline">
+      <mat-label>Rechercher un ingrédient</mat-label>
+      <input matInput (change)="onChange()" [(ngModel)]="nameSelected">
+      <mat-icon matPrefix>search</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Filtrer les ingrédients</mat-label>
+      <mat-select [(value)]="categorySelected" (valueChange)="onChange()">
+        <mat-option></mat-option>
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
   <div class="add-ingredient-card" routerLink="add">
     <div class="add-ingredient-header">
       <span class="material-symbols-rounded">add_circle</span>

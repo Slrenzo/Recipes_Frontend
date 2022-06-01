@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {SingleRecipe} from "../../../single-recipe/models/recipe.model";
 import {ActivatedRoute} from "@angular/router";
+import {Recipe, Type} from "../../models/recipe-card.model";
 
 @Component({
   selector: 'app-recipe-list',
@@ -9,12 +9,14 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class RecipeListPage implements OnInit {
 
-  recipes: SingleRecipe[] = [] ;
+  recipes: Recipe[] = [] ;
+  types: Type[] = [] ;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.recipes = this.activatedRoute.snapshot.data['recipes'];
+    this.types = this.activatedRoute.snapshot.data['types'];
+    this.activatedRoute.data.subscribe(_ => this.recipes = this.activatedRoute.snapshot.data['recipes'])
   }
 
 }

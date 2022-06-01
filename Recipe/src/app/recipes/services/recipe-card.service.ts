@@ -12,8 +12,8 @@ export class RecipeCardsService {
 
   constructor(private http: HttpClient) {}
 
-  getRecipesByParameter(selectedCategory:string, selectedName:string): Observable<Recipe[]> {
-    let param = new HttpParams().set('type', selectedCategory != null ? selectedCategory : "")
+  getRecipesByParameter(selectedtype:string, selectedName:string): Observable<Recipe[]> {
+    let param = new HttpParams().set('type', selectedtype != null ? selectedtype : "")
                                 .set('name', selectedName != null ? selectedName : "");
     return this.http.get<Recipe[]>("http://localhost:8080/recipes", {params:param});
   }

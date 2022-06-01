@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
 import {Recipe, Type} from "../../models/recipe-card.model";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-recipe-card-list',
@@ -10,17 +10,21 @@ import {Recipe, Type} from "../../models/recipe-card.model";
 export class RecipeCardListComponent implements OnInit {
 
   @Input() recipes: Recipe[] = [];
-  // -------------------------------------------------
-  // Les types doivent passer par un resolver ???????
-  // -------------------------------------------------
-  types$!: Observable<Type[]>;
+  @Input() types: Type[] = [];
+
 
   typeSelected!: string;
   nameSelected!: string;
 
-  constructor() { }
+  constructor(private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void { }
 
-  onChange() { }
+  onChange() {
+    this.router.navigate([], {
+    relativeTo: this.route,
+    queryParams: {'name': this.nameSelected, 'type': this.typeSelected},
+    queryParamsHandling: 'merge'
+  });}
 }

@@ -3,7 +3,7 @@ import {IngredientCardsService} from "../../services/ingredient.service";
 import {Observable} from "rxjs";
 import {Category, IngredientPostRequest} from "../../models/ingredient-card.model";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import {ImageService} from "../../../image.service";
 import {SnackBarService} from "../../../snack-bar.service";
 
@@ -24,7 +24,8 @@ export class AddIngredientComponent implements OnInit {
               private router: Router,
               private formBuilder: FormBuilder,
               private imageService: ImageService,
-              private snackBarService: SnackBarService) { }
+              private snackBarService: SnackBarService) {
+  }
 
   onSubmitForm() {
     console.log(this.image);
@@ -45,7 +46,7 @@ export class AddIngredientComponent implements OnInit {
 
   onFileUpload(event: any) {
     const file = event.target.files[0];
-    //this.image = this.imageService.converToBase64(file);
+    this.imageService.readFile(file).then(i => this.image = i?.toString() ?? '');
   }
 
   ngOnInit(): void {
