@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Recipe, Type} from '../models/recipe-card.model';
-import {RecipeRequest} from "../../single-recipe/models/recipe.model";
+import {RecipeRequest} from "../models/recipe.model";
 
 @Injectable({
   providedIn: 'root'

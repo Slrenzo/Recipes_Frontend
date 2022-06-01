@@ -1,21 +1,20 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
+import {Component, Input, OnInit} from '@angular/core';
 import {Category, IngredientResponse} from "../../models/ingredient-card.model";
 import {IngredientCardsService} from "../../services/ingredient.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {DialogDeleteIngredientComponent} from "../dialog-delete-ingredient/dialog-delete-ingredient.component";
 import {MatDialog} from "@angular/material/dialog";
 import {SnackBarService} from "../../../snack-bar.service";
 import {ImageService} from "../../../image.service";
+import {DialogDeleteIngredientComponent} from "../dialog-delete-ingredient/dialog-delete-ingredient.component";
 
 @Component({
-  selector: 'app-dialog-modify',
-  templateUrl: './modify-ingredient.component.html',
-  styleUrls: ['./modify-ingredient.component.scss']
+  selector: 'app-modify-ingredient-list',
+  templateUrl: './modify-ingredient-list.component.html',
+  styleUrls: ['./modify-ingredient-list.component.scss']
 })
-export class ModifyIngredientComponent implements OnInit {
+export class ModifyIngredientListComponent implements OnInit {
 
-  categories$!: Observable<Category[]>;
+  @Input() categories: Category[] = []
   ingredient!: IngredientResponse;
 
   constructor(private ingredientCardsService: IngredientCardsService,
@@ -63,9 +62,7 @@ export class ModifyIngredientComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.categories$ = this.ingredientCardsService.getCategory();
-  }
+  ngOnInit(): void { }
 
   onFileUpload(event: any) {
     const file = event.target.files[0];

@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {IngredientCardsService} from "../../services/ingredient.service";
-import {Observable} from "rxjs";
 import {Category, IngredientPostRequest} from "../../models/ingredient-card.model";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from '@angular/router';
@@ -8,17 +7,17 @@ import {ImageService} from "../../../image.service";
 import {SnackBarService} from "../../../snack-bar.service";
 
 @Component({
-  selector: 'app-dialog-add-ingredient',
-  templateUrl: './add-ingredient.component.html',
-  styleUrls: ['./add-ingredient.component.scss']
+  selector: 'app-add-ingredient-list',
+  templateUrl: './add-ingredient-list.component.html',
+  styleUrls: ['./add-ingredient-list.component.scss']
 })
-export class AddIngredientComponent implements OnInit {
+export class AddIngredientListComponent implements OnInit {
+
+  @Input() categories: Category[] = []
 
   ingredientPostModel!: IngredientPostRequest;
   ingredientForm!: FormGroup;
-
   image: string = "assets/add.png";
-  categories$!: Observable<Category[]>;
 
   constructor(private ingredientCardsService: IngredientCardsService,
               private router: Router,
@@ -50,7 +49,6 @@ export class AddIngredientComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categories$ = this.ingredientCardsService.getCategory();
     this.ingredientForm = this.formBuilder.group({
       name: [null],
       categoryId: [null]

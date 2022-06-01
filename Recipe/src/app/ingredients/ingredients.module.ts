@@ -5,24 +5,28 @@ import {IngredientListPage} from './pages/ingredient-list/ingredient-list.page';
 import {IngredientCardComponent} from "./components/ingredient-card/ingredient-card.component";
 import {IngredientCardListComponent} from "./components/ingredient-card-list/ingredient-card-list.component";
 import {MatSelectModule} from "@angular/material/select";
-import {ModifyIngredientComponent} from "./components/modify-ingredient/modify-ingredient.component";
 import {MatDialogModule} from "@angular/material/dialog";
-import {AddIngredientComponent} from "./components/add-ingredient/add-ingredient.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonModule} from "@angular/material/button";
 import { DialogDeleteIngredientComponent } from './components/dialog-delete-ingredient/dialog-delete-ingredient.component';
 import {MatIconModule} from "@angular/material/icon";
+import { AddIngredientPage } from './pages/add-ingredient/add-ingredient.page';
+import { AddIngredientListComponent } from './components/add-ingredient-list/add-ingredient-list.component';
+import { ModifyIngredientListComponent } from './components/modify-ingredient-list/modify-ingredient-list.component';
+import { ModifyIngredientPage } from './pages/modify-ingredient/modify-ingredient.page';
 
 @NgModule({
   declarations: [
     IngredientListPage,
     IngredientCardComponent,
     IngredientCardListComponent,
-    ModifyIngredientComponent,
-    AddIngredientComponent,
-    DialogDeleteIngredientComponent
+    DialogDeleteIngredientComponent,
+    AddIngredientPage,
+    AddIngredientListComponent,
+    ModifyIngredientListComponent,
+    ModifyIngredientPage
   ],
   imports: [
     CommonModule,
@@ -37,8 +41,6 @@ import {MatIconModule} from "@angular/material/icon";
     MatIconModule
   ],
   entryComponents: [
-    ModifyIngredientComponent,
-    AddIngredientComponent,
     DialogDeleteIngredientComponent
   ]
 })

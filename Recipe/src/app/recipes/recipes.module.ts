@@ -10,13 +10,36 @@ import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
-
+import {RecipeHeaderComponent} from "./components/recipe-header/recipe-header.component";
+import {RecipeInfoComponent} from "./components/recipe-info/recipe-info.component";
+import {RecipeIngredientComponent} from "./components/recipe-ingredient/recipe-ingredient.component";
+import {RecipeIngredientListComponent} from "./components/recipe-ingredient-list/recipe-ingredient-list.component";
+import {RecipeStepComponent} from "./components/recipe-step/recipe-step.component";
+import {RecipeStepListComponent} from "./components/recipe-step-list/recipe-step-list.component";
+import {SingleRecipePage} from "./pages/single-recipe/single-recipe.page";
+import {SingleRecipeListComponent} from "./components/single-recipe-list/single-recipe-list.component";
+import { ModifyRecipePage } from './pages/modify-recipe/modify-recipe.page';
+import { AddRecipePage } from './pages/add-recipe/add-recipe.page';
+import { ModifyRecipeListComponent } from './components/modify-recipe-list/modify-recipe-list.component';
+import { AddRecipeListComponent } from './components/add-recipe-list/add-recipe-list.component';
 
 @NgModule({
   declarations: [
     RecipeListPage,
     RecipeCardComponent,
-    RecipeCardListComponent
+    RecipeCardListComponent,
+    RecipeHeaderComponent,
+    RecipeInfoComponent,
+    RecipeIngredientComponent,
+    RecipeIngredientListComponent,
+    RecipeStepComponent,
+    RecipeStepListComponent,
+    SingleRecipePage,
+    SingleRecipeListComponent,
+    ModifyRecipePage,
+    AddRecipePage,
+    ModifyRecipeListComponent,
+    AddRecipeListComponent
   ],
   exports: [
     RecipeCardComponent
@@ -32,4 +55,5 @@ import {MatIconModule} from "@angular/material/icon";
     MatIconModule,
   ]
 })
+
 export class RecipesModule { }

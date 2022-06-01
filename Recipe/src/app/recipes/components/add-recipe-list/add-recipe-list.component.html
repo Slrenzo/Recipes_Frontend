@@ -1,0 +1,19 @@
+<div class="add-image-container">
+  <span class="subtitle">Choisir une image</span>
+  <div class="add-img">
+    <img [src]="image" alt="add">
+  </div>
+  <input type="file" (change)="onFileUpload($event)">
+</div>
+
+<mat-form-field class="field" appearance="outline">
+  <mat-label>Nom</mat-label>
+  <input required matInput type="text" >
+</mat-form-field>
+
+<div class="button-box">
+  <button class="cancel-button" routerLink="/recipes">Annuler</button>
+  <button class="confirm-button" >Valider</button>
+</div>
+
+
