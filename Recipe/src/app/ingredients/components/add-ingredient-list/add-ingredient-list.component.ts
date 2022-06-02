@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IngredientCardsService} from "../../services/ingredient.service";
-import {Category, IngredientPostRequest} from "../../models/ingredient-card.model";
+import {Category} from "../../models/ingredient-card.model";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from '@angular/router';
 import {ImageService} from "../../../image.service";
@@ -15,7 +15,6 @@ export class AddIngredientListComponent implements OnInit {
 
   @Input() categories: Category[] = []
 
-  ingredientPostModel!: IngredientPostRequest;
   ingredientForm!: FormGroup;
   image: string = "assets/add.png";
 
@@ -23,11 +22,9 @@ export class AddIngredientListComponent implements OnInit {
               private router: Router,
               private formBuilder: FormBuilder,
               private imageService: ImageService,
-              private snackBarService: SnackBarService) {
-  }
+              private snackBarService: SnackBarService) {  }
 
   onSubmitForm() {
-    console.log(this.image);
     this.ingredientCardsService.postIngredient({
       image: this.image,
       name: this.ingredientForm.value.name,

@@ -17,12 +17,11 @@ export interface Type {
 }
 
 export interface RecipeRequest {
-  id: string;
   name: string;
   people: number;
   time: number;
   image: string;
-  type: string;
+  typeId: string;
   ingredients: IngredientRequest[];
   steps: StepRequest[];
 }

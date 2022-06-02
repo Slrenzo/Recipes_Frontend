@@ -1,8 +1,8 @@
 <div class="dialog">
-  <span class="dialog-title" mat-dialog-title>Supprimer un ingrédient</span>
+  <span class="dialog-title" mat-dialog-title>{{data.title}}</span>
 
   <mat-dialog-content>
-    <span>Souhaitez vous vraiment supprimer cet ingrédient ?</span>
+    <span>{{ data.desc }}</span>
     <div class="dialog-content">
       <div class="dialog-img">
         <img [src]="data.image" alt="{{data.name}}">

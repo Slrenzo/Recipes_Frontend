@@ -6,7 +6,7 @@ import { RecipeCardListComponent } from "./components/recipe-card-list/recipe-ca
 import { RecipeCardComponent } from "./components/recipe-card/recipe-card.component";
 import { SharedModule } from "../shared/shared.module";
 import {MatSelectModule} from "@angular/material/select";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
@@ -22,7 +22,7 @@ import { ModifyRecipePage } from './pages/modify-recipe/modify-recipe.page';
 import { AddRecipePage } from './pages/add-recipe/add-recipe.page';
 import { ModifyRecipeListComponent } from './components/modify-recipe-list/modify-recipe-list.component';
 import { AddRecipeListComponent } from './components/add-recipe-list/add-recipe-list.component';
-
+import {MatExpansionModule} from "@angular/material/expansion";
 @NgModule({
   declarations: [
     RecipeListPage,
@@ -44,16 +44,18 @@ import { AddRecipeListComponent } from './components/add-recipe-list/add-recipe-
   exports: [
     RecipeCardComponent
   ],
-  imports: [
-    CommonModule,
-    RecipesRoutingModule,
-    SharedModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatSelectModule,
-    MatIconModule,
-  ]
+    imports: [
+        CommonModule,
+        RecipesRoutingModule,
+        SharedModule,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        MatSelectModule,
+        MatIconModule,
+        ReactiveFormsModule,
+        MatExpansionModule,
+    ]
 })
 
 export class RecipesModule { }

@@ -7,6 +7,7 @@ import {SingleRecipePage} from "./pages/single-recipe/single-recipe.page";
 import {SingleRecipesResolver} from "./resolvers/single-recipes.resolver";
 import {AddRecipePage} from "./pages/add-recipe/add-recipe.page";
 import {ModifyRecipePage} from "./pages/modify-recipe/modify-recipe.page";
+import {IngredientsResolver} from "../ingredients/resolvers/ingredients.resolver";
 
 const routes: Routes = [
   { path: '',
@@ -17,14 +18,25 @@ const routes: Routes = [
     },
     runGuardsAndResolvers: 'paramsOrQueryParamsChange'
   },
-  {path: 'add', component: AddRecipePage},
+  {path: 'add',
+    component: AddRecipePage,
+    resolve: {
+      types: TypesResolver,
+      ingredients: IngredientsResolver
+    }
+  },
   {path: ':id',
     component: SingleRecipePage,
     resolve: {
       recipe: SingleRecipesResolver,
-    },
+    }
   },
-  {path: ':id/modify', component: ModifyRecipePage}
+  {path: ':id/modify',
+    component: ModifyRecipePage,
+    resolve: {
+      recipe: SingleRecipesResolver,
+    }
+  }
 ];
 
 @NgModule({

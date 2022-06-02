@@ -1,7 +1,7 @@
 <div class="filter-container">
   <mat-form-field class="search" appearance="outline">
     <mat-label>Rechercher une recette</mat-label>
-    <input matInput (change)="onChange()" [(ngModel)]="nameSelected">
+    <input matInput type="search" (change)="onChange()" [(ngModel)]="nameSelected">
     <mat-icon matPrefix>search</mat-icon>
   </mat-form-field>
 

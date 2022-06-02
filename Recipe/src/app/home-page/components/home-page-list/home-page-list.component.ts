@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Recipe} from "../../models/home-page.model";
+import {SingleRecipe} from "../../../recipes/models/recipe.model";
 
 @Component({
   selector: 'app-home-page-list',
@@ -8,7 +8,7 @@ import {Recipe} from "../../models/home-page.model";
 })
 export class HomePageListComponent implements OnInit {
 
-  @Input() recipes: Recipe[] = [];
+  @Input() recipes: SingleRecipe[] = [];
 
   constructor() { }
 

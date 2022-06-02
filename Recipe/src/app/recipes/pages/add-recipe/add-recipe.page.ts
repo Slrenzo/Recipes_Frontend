@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Type} from "../../models/recipe-card.model";
+import {ActivatedRoute} from "@angular/router";
+import {Ingredient} from "../../models/ingredient.model";
 
 @Component({
   selector: 'app-add-recipe',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddRecipePage implements OnInit {
 
-  constructor() { }
+  types: Type[] = [] ;
+  ingredients: Ingredient[] = [];
+
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.types = this.activatedRoute.snapshot.data['types'];
+    this.ingredients = this.activatedRoute.snapshot.data['ingredients'];
   }
 
 }

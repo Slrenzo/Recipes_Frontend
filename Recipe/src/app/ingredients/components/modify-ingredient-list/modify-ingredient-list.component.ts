@@ -5,7 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {SnackBarService} from "../../../snack-bar.service";
 import {ImageService} from "../../../image.service";
-import {DialogDeleteIngredientComponent} from "../dialog-delete-ingredient/dialog-delete-ingredient.component";
+import {DialogDeleteComponent} from "../../../shared/components/dialog-delete/dialog-delete.component";
 
 @Component({
   selector: 'app-modify-ingredient-list',
@@ -25,7 +25,6 @@ export class ModifyIngredientListComponent implements OnInit {
               private imageService: ImageService) {
 
     const ingredientId = this.route.snapshot.params['id'];
-    console.log(ingredientId)
     this.ingredientCardsService.getIngredientById(ingredientId).subscribe((res: IngredientResponse) => {
       this.ingredient = res;
     });
@@ -49,15 +48,18 @@ export class ModifyIngredientListComponent implements OnInit {
     this.router.navigateByUrl("ingredients");
   }
 
-  onDelete(ingredient: IngredientResponse) {
-    this.dialogDelete.open(DialogDeleteIngredientComponent, {
+  onDelete() {
+    this.dialogDelete.open(DialogDeleteComponent, {
       height: '500px',
       width: '750px',
       disableClose : true,
       data: {
-        image: ingredient.image,
-        id: ingredient.id,
-        name: ingredient.name
+        title: 'Supprimer un ingrédient',
+        desc: 'Souhaitez vous vraiment supprimer cet ingrédient ?',
+        type: 'ingredient',
+        image: this.ingredient.image,
+        id: this.ingredient.id,
+        name: this.ingredient.name
       }
     });
   }

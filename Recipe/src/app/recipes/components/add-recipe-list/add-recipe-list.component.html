@@ -1,3 +1,5 @@
+<span class="title">Ajouter une recette</span>
+
 <div class="add-image-container">
   <span class="subtitle">Choisir une image</span>
   <div class="add-img">
@@ -6,14 +8,76 @@
   <input type="file" (change)="onFileUpload($event)">
 </div>
 
-<mat-form-field class="field" appearance="outline">
-  <mat-label>Nom</mat-label>
-  <input required matInput type="text" >
-</mat-form-field>
+<form [formGroup]="recipeForm">
+  <mat-form-field class="field" appearance="outline">
+    <mat-label>Nom</mat-label>
+    <input required matInput type="text" formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field class="field" appearance="outline">
+    <mat-label>Personnes</mat-label>
+    <input required matInput type="number" formControlName="people">
+  </mat-form-field>
+
+  <mat-form-field class="field" appearance="outline">
+    <mat-label>Temps</mat-label>
+    <input required matInput type="time" formControlName="time">
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>Filtrer les recettes</mat-label>
+    <mat-select required formControlName="typeId">
+      <mat-option *ngFor="let type of types" [value]="type.id">
+        {{ type.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+
+<span>Etapes</span>
+
+<form [formGroup]="stepForm" (ngSubmit)="onSubmit()">
+  <div formArrayName="addDynamicElement">
+
+      <div *ngFor="let item of addDynamicElement.controls; let i = index">
+
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="step-panel-title">
+                  Etape {{i}}
+                  <span class="material-symbols-outlined" (click)="removeItem(i)">delete</span>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-form-field appearance="outline">
+              <mat-label>Description</mat-label>
+              <input [formControlName]="i" matInput>
+            </mat-form-field>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+      </div>
+    </div>
+  <button type="button" (click)="addItems()">Ajouter des étapes</button>
+  <button type="submit" style="background: red">Verification</button>
+</form>
+
 
 <div class="button-box">
   <button class="cancel-button" routerLink="/recipes">Annuler</button>
-  <button class="confirm-button" >Valider</button>
+  <button class="confirm-button" (click)="onSubmitForm()">Valider</button>
 </div>
+
+
+
+
+
+
+
+
 
 

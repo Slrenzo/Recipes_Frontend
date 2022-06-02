@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {
   Category,
-  IngredientResponse,
+  IngredientPostRequest,
   IngredientPutRequest,
-  IngredientPostRequest
+  IngredientResponse
 } from "../models/ingredient-card.model";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
@@ -42,6 +42,7 @@ export class IngredientCardsService {
   postIngredient(Ingredient: IngredientPostRequest): Observable<IngredientPostRequest> {
     return this.http.post<IngredientPostRequest>(`http://localhost:8080/ingredients`,Ingredient);
   }
+
 }
 
 

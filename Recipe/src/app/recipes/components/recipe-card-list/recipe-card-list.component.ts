@@ -12,14 +12,16 @@ export class RecipeCardListComponent implements OnInit {
   @Input() recipes: Recipe[] = [];
   @Input() types: Type[] = [];
 
-
   typeSelected!: string;
   nameSelected!: string;
 
   constructor(private router: Router,
               private route: ActivatedRoute) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.nameSelected = this.route.snapshot.queryParams['name'];
+    this.typeSelected = this.route.snapshot.queryParams['type'];
+  }
 
   onChange() {
     this.router.navigate([], {

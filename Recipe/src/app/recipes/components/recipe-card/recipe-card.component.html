@@ -1,6 +1,6 @@
 <div class="recipe-card" (click)="onViewRecipe()">
   <div class="recipe-img">
-    <img src="assets/recipes/{{ recipe.id }}.png" alt="{{ recipe.name }}">
+    <img [src]="recipe.image" alt="{{ recipe.name }}">
   </div>
   <div class="recipe-text">
     <span class="recipe-name">{{ recipe.name }}</span>

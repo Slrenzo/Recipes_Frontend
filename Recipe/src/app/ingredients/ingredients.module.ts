@@ -10,19 +10,18 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonModule} from "@angular/material/button";
-import { DialogDeleteIngredientComponent } from './components/dialog-delete-ingredient/dialog-delete-ingredient.component';
+import {DialogDeleteComponent} from '../shared/components/dialog-delete/dialog-delete.component';
 import {MatIconModule} from "@angular/material/icon";
-import { AddIngredientPage } from './pages/add-ingredient/add-ingredient.page';
-import { AddIngredientListComponent } from './components/add-ingredient-list/add-ingredient-list.component';
-import { ModifyIngredientListComponent } from './components/modify-ingredient-list/modify-ingredient-list.component';
-import { ModifyIngredientPage } from './pages/modify-ingredient/modify-ingredient.page';
+import {AddIngredientPage} from './pages/add-ingredient/add-ingredient.page';
+import {AddIngredientListComponent} from './components/add-ingredient-list/add-ingredient-list.component';
+import {ModifyIngredientListComponent} from './components/modify-ingredient-list/modify-ingredient-list.component';
+import {ModifyIngredientPage} from './pages/modify-ingredient/modify-ingredient.page';
 
 @NgModule({
   declarations: [
     IngredientListPage,
     IngredientCardComponent,
     IngredientCardListComponent,
-    DialogDeleteIngredientComponent,
     AddIngredientPage,
     AddIngredientListComponent,
     ModifyIngredientListComponent,
@@ -41,7 +40,7 @@ import { ModifyIngredientPage } from './pages/modify-ingredient/modify-ingredien
     MatIconModule
   ],
   entryComponents: [
-    DialogDeleteIngredientComponent
+    DialogDeleteComponent
   ]
 })
 export class IngredientsModule { }

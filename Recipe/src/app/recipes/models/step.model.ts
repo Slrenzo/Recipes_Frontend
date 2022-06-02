@@ -1,4 +1,4 @@
-export interface Step {
+  export interface Step {
   id: string;
   descr: string;
   step_order: string;
@@ -6,5 +6,5 @@ export interface Step {
 
 export interface StepRequest {
   descr: string;
-  step_order: string;
+  step_order: number;
 }

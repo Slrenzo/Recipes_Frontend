@@ -2,22 +2,21 @@ import { Injectable } from '@angular/core';
 import {
   Resolve,
   RouterStateSnapshot,
-  ActivatedRouteSnapshot, Router
+  ActivatedRouteSnapshot,
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import {SingleRecipe} from "../models/recipe.model";
-import {SingleRecipeService} from "../services/single-recipe.service";
+import {RecipeService} from "../services/recipe.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SingleRecipesResolver implements Resolve<SingleRecipe> {
 
-  constructor(private singleRecipeService: SingleRecipeService,
-              private router: Router) { }
+  constructor(private singleRecipeService: RecipeService) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<SingleRecipe> {
-    const id = this.router.getCurrentNavigation()?.extractedUrl.toString().substring(9);
-    return this.singleRecipeService.getRecipeById(id == null ? "" : id);
+    const id = route.params['id'];
+    return this.singleRecipeService.getRecipeById(id);
   }
 }

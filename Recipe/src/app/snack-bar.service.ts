@@ -11,6 +11,7 @@ export class SnackBarService {
   openErrorSnackBar(message: string) {
     this.snackBar.open(message, "", {
       duration: 7000,
+      horizontalPosition: 'right',
       panelClass: ['error-snackbar']
     });
   }
@@ -18,6 +19,7 @@ export class SnackBarService {
   openSnackBar(message: string) {
     this.snackBar.open(message, "", {
       duration: 7000,
+      horizontalPosition: 'right',
       panelClass: ['valid-snackbar']
     });
   }

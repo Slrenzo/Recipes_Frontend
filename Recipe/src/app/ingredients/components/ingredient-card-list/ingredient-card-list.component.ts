@@ -30,7 +30,7 @@ export class IngredientCardListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.nameSelected = this.router.getCurrentNavigation()?.extractedUrl.queryParams['name'];
-    this.categorySelected = this.router.getCurrentNavigation()?.extractedUrl.queryParams['category'];
+    this.nameSelected = this.route.snapshot.queryParams['name'];
+    this.categorySelected = this.route.snapshot.queryParams['category'];
   }
 }

@@ -10,5 +10,5 @@ export interface Ingredient {
 export interface IngredientRequest {
   ingredientId: string;
   quantity: number;
-  unit : string;
+  unitId : string;
 }
