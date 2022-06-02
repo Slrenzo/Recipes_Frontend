@@ -36,9 +36,9 @@
 </form>
 
 
-<span>Etapes</span>
+<span>Étapes</span>
 
-<form [formGroup]="stepForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="stepForm">
   <div formArrayName="addDynamicElement">
 
       <div *ngFor="let item of addDynamicElement.controls; let i = index">
@@ -48,7 +48,7 @@
             <mat-expansion-panel-header>
               <mat-panel-title>
                 <div class="step-panel-title">
-                  Etape {{i}}
+                  <span>Étape {{i + 1}}</span>
                   <span class="material-symbols-outlined" (click)="removeItem(i)">delete</span>
                 </div>
               </mat-panel-title>
@@ -59,11 +59,9 @@
             </mat-form-field>
           </mat-expansion-panel>
         </mat-accordion>
-
       </div>
     </div>
   <button type="button" (click)="addItems()">Ajouter des étapes</button>
-  <button type="submit" style="background: red">Verification</button>
 </form>
 
 

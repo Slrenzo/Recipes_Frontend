@@ -5,6 +5,8 @@ import {SnackBarService} from "../../../snack-bar.service";
 import {RecipeRequest, Type} from "../../models/recipe.model";
 import {Ingredient} from "../../models/ingredient.model";
 import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
+import {StepRequest} from "../../models/step.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-recipe-list',
@@ -24,10 +26,13 @@ export class AddRecipeListComponent implements OnInit {
 
   recipeForm!: FormGroup;
 
+  steps: StepRequest[] = [];
+
   constructor(private imageService: ImageService,
               private recipeService: RecipeService,
               private snackBarService: SnackBarService,
-              private formBuilder: FormBuilder,) { }
+              private formBuilder: FormBuilder,
+              private router: Router) { }
 
 
   stepForm = this.formBuilder.group({
@@ -40,11 +45,6 @@ export class AddRecipeListComponent implements OnInit {
   addItems() {
     this.addDynamicElement.push(this.formBuilder.control(''));
   }
-
-  onSubmit() {
-    console.log(JSON.stringify(this.stepForm.value));
-  }
-
   removeItem(stepIndex: number) {
     this.addDynamicElement.removeAt(stepIndex);
   }
@@ -57,7 +57,7 @@ export class AddRecipeListComponent implements OnInit {
   }
 
   onSubmitForm() {
-
+    this.stepForm.value.addDynamicElement.forEach((descr: string, index: number) => this.steps.push({step_order: index+1, descr:descr}));
     this.recipe = {
       name: this.recipeForm.value.name,
       people: this.recipeForm.value.people,
@@ -69,9 +69,7 @@ export class AddRecipeListComponent implements OnInit {
         quantity: 4,
         unitId : '02'
       }],
-      steps: [{descr: 'string',
-        step_order: 1
-      }]
+      steps: this.steps
     };
     console.log(this.recipe)
     this.recipeService.postRecipe(this.recipe).subscribe({
@@ -82,6 +80,7 @@ export class AddRecipeListComponent implements OnInit {
         this.snackBarService.openErrorSnackBar("Erreur lors de l'ajout.");
       }
     });
+    this.router.navigateByUrl("recipes");
   }
 
 
@@ -92,6 +91,7 @@ export class AddRecipeListComponent implements OnInit {
       people: [null],
       typeId: [null]
     });
+
   }
 
 }
