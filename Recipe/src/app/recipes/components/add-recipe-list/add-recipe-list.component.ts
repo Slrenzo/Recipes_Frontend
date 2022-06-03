@@ -11,6 +11,7 @@ import {IngredientSearchModel} from "../../models/ingredientSearch.model";
 import {Unit} from "../../models/unit.model";
 import {IngredientCardsService} from "../../../ingredients/services/ingredient.service";
 import {IngredientResponse} from "../../../ingredients/models/ingredient-card.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-recipe-list',
@@ -43,7 +44,8 @@ test!: string;
               private recipeService: RecipeService,
               private snackBarService: SnackBarService,
               private formBuilder: FormBuilder,
-              private ingredientService: IngredientCardsService) { }
+              private ingredientService: IngredientCardsService,
+              private router: Router) { }
 
 
   private filter(value: string): IngredientSearchModel[] {
@@ -71,8 +73,12 @@ test!: string;
   addItemsIngredient(id: string) {
     console.log(id)
     this.ingredient = this.ingredientService.getIngredientById(id);
-    const ingredientForm = this.formBuilder.group({name: '', image: '', quantity: 1,unitId: [null]});
-    this.addIngredient.push(ingredientForm);
+    this.ingredient.subscribe(value => {console.log(value.name);
+      this.test = value.name;
+      const ingredientForm = this.formBuilder.group({
+        name: value.name, image: value.image, quantity: 1,unitId: [null]});
+      this.addIngredient.push(ingredientForm);
+    });
   }
   removeIngredient(stepIndex: number) {
     this.addStep.removeAt(stepIndex);
@@ -86,30 +92,27 @@ test!: string;
 
   onSubmitForm() {
     console.log(this.recipeForm.value)
-    // this.recipeForm.value.addDynamicElement.forEach((descr: string, index: number) => this.steps.push({step_order: index+1, descr:descr}));
-    // this.recipe = {
-    //   name: this.recipeForm.value.name,
-    //   people: this.recipeForm.value.people,
-    //   time: Number(this.recipeForm.value.time.substring(0,2)) * 60
-    //     + Number(this.recipeForm.value.time.substring(3,5)),
-    //   image: this.image,
-    //   typeId: this.recipeForm.value.typeId,
-    //   ingredients: [{ ingredientId: '1unkKnjOhgQcIif',
-    //     quantity: 4,
-    //     unitId : '02'
-    //   }],
-    //   steps: this.steps
-    // };
-    // console.log(this.recipe)
-    // this.recipeService.postRecipe(this.recipe).subscribe({
-    //   next: () => {
-    //     this.snackBarService.openSnackBar('Ajout réussi.');
-    //   },
-    //   error: () => {
-    //     this.snackBarService.openErrorSnackBar("Erreur lors de l'ajout.");
-    //   }
-    // });
-    // this.router.navigateByUrl("recipes");
+    this.recipeForm.value.addStep.forEach((descr: string, index: number) => this.steps.push({step_order: index+1, descr:descr}));
+    this.recipe = {
+      name: this.recipeForm.value.name,
+      people: this.recipeForm.value.people,
+      time: Number(this.recipeForm.value.time.substring(0,2)) * 60
+        + Number(this.recipeForm.value.time.substring(3,5)),
+      image: this.image,
+      typeId: this.recipeForm.value.typeId,
+      ingredients: this.recipeForm.value.addIngredient,
+      steps: this.steps
+    };
+    console.log(this.recipe)
+    this.recipeService.postRecipe(this.recipe).subscribe({
+      next: () => {
+        this.snackBarService.openSnackBar('Ajout réussi.');
+      },
+      error: () => {
+        this.snackBarService.openErrorSnackBar("Erreur lors de l'ajout.");
+      }
+    });
+    this.router.navigateByUrl("recipes");
   }
 
 

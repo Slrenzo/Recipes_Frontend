@@ -41,82 +41,90 @@
 
 
 
-<span>Étapes</span>
-<form [formGroup]="recipeForm">
-  <div class="steps-container" formArrayName="addStep">
-
-    <div *ngFor="let step of addStep.controls; let i = index">
-
-      <mat-accordion>
-        <mat-expansion-panel hideToggle>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <div class="step-panel-title">
-                <span>Étape {{i + 1}}</span>
-                <span class="material-symbols-outlined" (click)="removeStep(i)">delete</span>
-              </div>
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <mat-form-field appearance="outline">
-            <mat-label>Description</mat-label>
-            <textarea [formControlName]="i" matInput required></textarea>
-          </mat-form-field>
-        </mat-expansion-panel>
-      </mat-accordion>
-    </div>
-  </div>
-  <button type="button" (click)="addItemsStep()">Ajouter des étapes</button>
-</form>
+<div class="recipe-container">
 
 
+<!--  <div  formArrayName="addIngredient">-->
 
+  <form class="ingredient-part" [formGroup]="recipeForm">
 
+    <span>Ingrédients</span>
 
-
-
-<form [formGroup]="recipeForm">
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Recherche</mat-label>
-    <input type="search"
-           matInput
-           [formControl]="myControl"
-           [matAutocomplete]="auto">
-    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async"
-                  (onSelectionChange)="addItemsIngredient(option.id)" value="dfgdfg">
-        {{option.name}}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-
-
-
-
-  <span>Ingrédients</span>
-  <div class="steps-container" formArrayName="addIngredient">
-
-    <div class="ingredient-box" *ngFor="let ingredient of addIngredient.controls; let i = index" >
-      <div [formGroup]="getFormGroup(ingredient)">
-
-        <img [src]="ingredient.value.image">
-        <span>{{ingredient.value.name}}</span>
-      <mat-form-field appearance="outline">
-        <mat-label>Quantity</mat-label>
-        <input type="text" formControlName="quantity" matInput required>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Unités</mat-label>
-        <mat-select required formControlName="unitId">
-          <mat-option *ngFor="let unit of units" [value]="unit.id">
-            {{ unit.name}}
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Recherche</mat-label>
+        <input type="search"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async"
+                      (onSelectionChange)="addItemsIngredient(option.id)" value="dfgdfg">
+            {{option.name}}
           </mat-option>
-        </mat-select>
+        </mat-autocomplete>
       </mat-form-field>
+
+
+      <div class="ingredient-container">
+      <div *ngFor="let ingredient of addIngredient.controls; let i = index" >
+        <div class="ingredient-box" [formGroup]="getFormGroup(ingredient)">
+
+          <div class="ingredient-img">
+            <img [src]="ingredient.value.image" alt="{{ingredient.value.name}}">
+          </div>
+
+          <span>{{ingredient.value.name}}</span>
+
+          <input type="number" formControlName="quantity" matInput required>
+
+
+          <mat-form-field class="unit-field" appearance="outline">
+            <mat-label>Unités</mat-label>
+            <mat-select required formControlName="unitId">
+              <mat-option *ngFor="let unit of units" [value]="unit.id">
+                {{ unit.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      </div>
+    </form>
+
+
+
+
+  <form class="steps-part" [formGroup]="recipeForm">
+    <span>Étapes</span>
+    <div formArrayName="addStep">
+
+      <div *ngFor="let step of addStep.controls; let i = index">
+
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="step-panel-title">
+                  <span>Étape {{i + 1}}</span>
+                  <span class="material-symbols-outlined" (click)="removeStep(i)">delete</span>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-form-field appearance="outline">
+              <mat-label>Description</mat-label>
+              <textarea [formControlName]="i" matInput required></textarea>
+            </mat-form-field>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
     </div>
-  </div>
-  </div>
-</form>
+    <button type="button" (click)="addItemsStep()">Ajouter des étapes</button>
+  </form>
+
+
+
+
+</div>
 
 <div class="button-box">
   <button class="cancel-button" routerLink="/recipes">Annuler</button>
