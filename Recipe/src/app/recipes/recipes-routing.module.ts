@@ -8,6 +8,7 @@ import {SingleRecipesResolver} from "./resolvers/single-recipes.resolver";
 import {AddRecipePage} from "./pages/add-recipe/add-recipe.page";
 import {ModifyRecipePage} from "./pages/modify-recipe/modify-recipe.page";
 import {IngredientsResolver} from "../ingredients/resolvers/ingredients.resolver";
+import {UnitsResolver} from "./resolvers/units.resolver";
 
 const routes: Routes = [
   { path: '',
@@ -22,7 +23,8 @@ const routes: Routes = [
     component: AddRecipePage,
     resolve: {
       types: TypesResolver,
-      ingredients: IngredientsResolver
+      ingredients: IngredientsResolver,
+      units: UnitsResolver
     }
   },
   {path: ':id',
@@ -35,6 +37,7 @@ const routes: Routes = [
     component: ModifyRecipePage,
     resolve: {
       recipe: SingleRecipesResolver,
+      units: UnitsResolver
     }
   }
 ];

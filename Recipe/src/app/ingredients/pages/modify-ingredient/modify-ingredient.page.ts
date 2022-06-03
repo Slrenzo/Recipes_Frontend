@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Category} from "../../models/ingredient-card.model";
+import {Category, IngredientResponse} from "../../models/ingredient-card.model";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -10,11 +10,13 @@ import {ActivatedRoute} from "@angular/router";
 export class ModifyIngredientPage implements OnInit {
 
   categories: Category[] = [];
+  ingredient!: IngredientResponse;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.categories = this.activatedRoute.snapshot.data['categories'];
+    this.ingredient = this.activatedRoute.snapshot.data['ingredient']
   }
 
 }

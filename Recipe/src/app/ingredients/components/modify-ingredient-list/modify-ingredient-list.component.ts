@@ -15,20 +15,15 @@ import {DialogDeleteComponent} from "../../../shared/components/dialog-delete/di
 export class ModifyIngredientListComponent implements OnInit {
 
   @Input() categories: Category[] = []
-  ingredient!: IngredientResponse;
+  @Input() ingredient!: IngredientResponse;
 
   constructor(private ingredientCardsService: IngredientCardsService,
               private router: Router,
               private route: ActivatedRoute,
               private dialogDelete: MatDialog,
               private snackBarService: SnackBarService,
-              private imageService: ImageService) {
+              private imageService: ImageService) { }
 
-    const ingredientId = this.route.snapshot.params['id'];
-    this.ingredientCardsService.getIngredientById(ingredientId).subscribe((res: IngredientResponse) => {
-      this.ingredient = res;
-    });
-  }
 
   onSave(ingredient: IngredientResponse) {
     this.ingredientCardsService.putIngredient(ingredient.id,

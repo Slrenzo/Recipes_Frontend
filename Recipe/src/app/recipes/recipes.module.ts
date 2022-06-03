@@ -23,6 +23,7 @@ import { AddRecipePage } from './pages/add-recipe/add-recipe.page';
 import { ModifyRecipeListComponent } from './components/modify-recipe-list/modify-recipe-list.component';
 import { AddRecipeListComponent } from './components/add-recipe-list/add-recipe-list.component';
 import {MatExpansionModule} from "@angular/material/expansion";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 @NgModule({
   declarations: [
     RecipeListPage,
@@ -44,18 +45,19 @@ import {MatExpansionModule} from "@angular/material/expansion";
   exports: [
     RecipeCardComponent
   ],
-    imports: [
-        CommonModule,
-        RecipesRoutingModule,
-        SharedModule,
-        MatInputModule,
-        MatFormFieldModule,
-        FormsModule,
-        MatSelectModule,
-        MatIconModule,
-        ReactiveFormsModule,
-        MatExpansionModule,
-    ]
+  imports: [
+    CommonModule,
+    RecipesRoutingModule,
+    SharedModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatSelectModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    MatExpansionModule,
+    MatAutocompleteModule,
+  ]
 })
 
 export class RecipesModule { }

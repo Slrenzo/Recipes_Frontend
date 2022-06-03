@@ -17,8 +17,8 @@ export class IngredientsResolver implements Resolve<IngredientResponse[]> {
               private router: Router) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IngredientResponse[]> {
-    let name = this.router.getCurrentNavigation()?.extractedUrl.queryParams['name'];
-    let category = this.router.getCurrentNavigation()?.extractedUrl.queryParams['category'];
+    const name = this.router.getCurrentNavigation()?.extractedUrl.queryParams['name'];
+    const category = this.router.getCurrentNavigation()?.extractedUrl.queryParams['category'];
     return this.ingredientService.getIngredientsByParameter(category, name)
   }
 }

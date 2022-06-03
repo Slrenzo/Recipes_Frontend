@@ -1,5 +1,63 @@
 .step-panel-title {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+  font-size: 18px;
+}
+
+.recipe-add-header {
+  display: flex;
+  gap: 30px;
+
+  .add-image-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .add-img {
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      border-radius: 15px;
+    }
+  }
+
+  .recipe-info-container {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+
+    .recipe-form-info {
+      display: flex;
+      flex-direction: column;
+
+    }
+  }
+}
+
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+    color: #ee3838;
+    font-size: 33px;
+  }
+
+    .mat-form-field {
+      width: 100%;
+  }
+}
+
+.ingredient-box {
+  width: 125px;
+  height: 200px;
+  background: #939393;
+  border-radius: 15px;
 }

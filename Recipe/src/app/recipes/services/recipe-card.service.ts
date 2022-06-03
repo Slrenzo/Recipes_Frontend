@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Recipe, Type} from '../models/recipe-card.model';
 import {RecipeRequest} from "../models/recipe.model";
+import {Unit} from "../models/unit.model";
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,10 @@ export class RecipeCardsService {
 
   postIngredient(recipe: RecipeRequest): Observable<RecipeRequest> {
     return this.http.post<RecipeRequest>(`http://localhost:8080/recipes`,recipe);
+  }
+
+  getUnitsRecipe(): Observable<Unit[]> {
+    return this.http.get<Type[]>('http://localhost:8080/units');
   }
 }
 

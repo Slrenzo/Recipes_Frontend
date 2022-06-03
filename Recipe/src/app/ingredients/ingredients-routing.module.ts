@@ -5,6 +5,7 @@ import {IngredientsResolver} from "./resolvers/ingredients.resolver";
 import {CategoryResolver} from "./resolvers/category.resolver";
 import {AddIngredientPage} from "./pages/add-ingredient/add-ingredient.page";
 import {ModifyIngredientPage} from "./pages/modify-ingredient/modify-ingredient.page";
+import {IngredientsIdResolver} from "./resolvers/ingredients-id.resolver";
 
 const routes: Routes = [
   {path: '',
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: ':id/modify',
     component: ModifyIngredientPage,
     resolve: {
-      categories: CategoryResolver
+      categories: CategoryResolver,
+      ingredient: IngredientsIdResolver
     },
   }
 ];
