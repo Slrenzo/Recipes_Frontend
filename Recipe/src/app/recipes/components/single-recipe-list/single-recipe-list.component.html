@@ -7,7 +7,9 @@
   </div>
   <div class="container">
     <span class="title">Étapes</span>
-    <app-recipe-step-list [steps]="recipe.steps"></app-recipe-step-list>
+    <div class="steps-box">
+      <app-recipe-step-list [steps]="recipe.steps"></app-recipe-step-list>
+    </div>
   </div>
   <button class="modify-button" routerLink="modify">
     <span class="material-symbols-outlined">edit</span>
