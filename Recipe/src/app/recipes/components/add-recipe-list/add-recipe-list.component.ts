@@ -1,17 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {ImageService} from "../../../image.service";
 import {RecipeService} from "../../services/recipe.service";
 import {SnackBarService} from "../../../snack-bar.service";
 import {RecipeRequest, Type} from "../../models/recipe.model";
-import {Ingredient} from "../../models/ingredient.model";
 import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
-import {StepRequest} from "../../models/step.model";
 import {map, Observable, startWith} from "rxjs";
 import {IngredientSearchModel} from "../../models/ingredientSearch.model";
 import {Unit} from "../../models/unit.model";
 import {IngredientCardsService} from "../../../ingredients/services/ingredient.service";
-import {IngredientResponse} from "../../../ingredients/models/ingredient-card.model";
 import {Router} from "@angular/router";
+import {IngredientResponse} from "../../../ingredients/models/ingredient-card.model";
 
 @Component({
   selector: 'app-add-recipe-list',
@@ -21,31 +19,24 @@ import {Router} from "@angular/router";
 export class AddRecipeListComponent implements OnInit {
 
   @Input() types: Type[] = [];
-  @Input() ingredients: Ingredient[] = [];
+  @Input() ingredients: IngredientResponse[] = [];
   @Input() units: Unit[] = [];
 
   image: string = "assets/add.png";
   recipe!: RecipeRequest;
   recipeForm!: FormGroup;
-  steps: StepRequest[] = [];
-  ingredient!: Observable<IngredientResponse>;
 
   myControl = new FormControl('');
   filteredOptions!: Observable<IngredientSearchModel[]>;
   options: IngredientSearchModel[] = [];
-
-
-
-
-test!: string;
-
 
   constructor(private imageService: ImageService,
               private recipeService: RecipeService,
               private snackBarService: SnackBarService,
               private formBuilder: FormBuilder,
               private ingredientService: IngredientCardsService,
-              private router: Router) { }
+              private router: Router,
+              private cdref: ChangeDetectorRef) { }
 
 
   private filter(value: string): IngredientSearchModel[] {
@@ -57,32 +48,27 @@ test!: string;
     return this.recipeForm.get('addStep') as FormArray;
   }
   addItemsStep() {
-    this.addStep.push(this.formBuilder.control(''));
+    const stepForm = this.formBuilder.group({descr: [null], step_order: [null]})
+    this.addStep.push(stepForm);
   }
   removeStep(stepIndex: number) {
     this.addStep.removeAt(stepIndex);
   }
-
-
-  getFormGroup(control: AbstractControl) { return control as FormGroup;}
-
-
   get addIngredient() {
     return this.recipeForm.controls['addIngredient'] as FormArray;
   }
   addItemsIngredient(id: string) {
-    console.log(id)
-    this.ingredient = this.ingredientService.getIngredientById(id);
-    this.ingredient.subscribe(value => {console.log(value.name);
-      this.test = value.name;
+    this.ingredientService.getIngredientById(id).subscribe(value => {
       const ingredientForm = this.formBuilder.group({
-        name: value.name, image: value.image, quantity: 1,unitId: [null]});
+        ingredientId: value.id, name: value.name, image: value.image, quantity: 1, unitId: [null]});
       this.addIngredient.push(ingredientForm);
     });
   }
-  removeIngredient(stepIndex: number) {
-    this.addStep.removeAt(stepIndex);
+  removeIngredient(IngredientIndex: number) {
+    this.addIngredient.removeAt(IngredientIndex);
   }
+
+  getFormGroup(control: AbstractControl) { return control as FormGroup;}
 
 
   onFileUpload(event: any) {
@@ -91,19 +77,18 @@ test!: string;
   }
 
   onSubmitForm() {
-    console.log(this.recipeForm.value)
-    this.recipeForm.value.addStep.forEach((descr: string, index: number) => this.steps.push({step_order: index+1, descr:descr}));
+    this.recipeForm.value.addStep.forEach((element: any, index: number) => element.step_order = index + 1)
     this.recipe = {
       name: this.recipeForm.value.name,
       people: this.recipeForm.value.people,
       time: Number(this.recipeForm.value.time.substring(0,2)) * 60
-        + Number(this.recipeForm.value.time.substring(3,5)),
+            + Number(this.recipeForm.value.time.substring(3,5)),
       image: this.image,
       typeId: this.recipeForm.value.typeId,
       ingredients: this.recipeForm.value.addIngredient,
-      steps: this.steps
+      steps: this.recipeForm.value.addStep,
     };
-    console.log(this.recipe)
+
     this.recipeService.postRecipe(this.recipe).subscribe({
       next: () => {
         this.snackBarService.openSnackBar('Ajout réussi.');
@@ -115,6 +100,9 @@ test!: string;
     this.router.navigateByUrl("recipes");
   }
 
+  ngAfterContentChecked() {
+    this.cdref.detectChanges();
+  }
 
   ngOnInit(): void {
     this.recipeForm = this.formBuilder.group({
@@ -127,19 +115,11 @@ test!: string;
     });
 
     this.ingredients.forEach(truc => this.options.push({id: truc.id, name: truc.name}));
-    console.log(this.ingredients)
-
 
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this.filter(value || '')),
     );
-
-
-
   }
-
-
-
 
 }

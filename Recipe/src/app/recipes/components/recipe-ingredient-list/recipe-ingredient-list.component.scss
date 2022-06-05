@@ -1,8 +1,7 @@
 .ingredient-container {
   display: flex;
-  gap: 50px;
+  column-gap: 50px;
+  row-gap: 30px;
   flex-wrap: wrap;
   justify-content: center;
-  width: 60%;
-  margin: auto;
 }

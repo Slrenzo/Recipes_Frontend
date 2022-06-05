@@ -4,20 +4,24 @@
     <div class="add-image-container">
       <span class="subtitle">Choisir une image</span>
       <div class="add-img">
-        <img [src]="image" alt="add">
+        <label for="file-input">
+          <img [src]="image" alt="add"/>
+        </label>
+        <input id="file-input" type="file" (change)="onFileUpload($event)" />
       </div>
-      <input type="file" (change)="onFileUpload($event)">
     </div>
     <div class="add-info">
       <span class="subtitle">Informations</span>
       <form [formGroup]="ingredientForm">
         <mat-form-field class="field" appearance="outline">
           <mat-label>Nom</mat-label>
+          <mat-icon matPrefix></mat-icon>
           <input type="search" maxlength="40" required matInput formControlName="name">
         </mat-form-field>
 
         <mat-form-field class="field" appearance="outline">
           <mat-label>Catégorie</mat-label>
+          <mat-icon matPrefix>toc</mat-icon>
           <mat-select required formControlName="categoryId">
             <mat-option *ngFor="let category of categories" [value]="category.id">
               {{ category.name}}

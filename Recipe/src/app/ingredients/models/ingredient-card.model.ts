@@ -4,6 +4,7 @@ export interface IngredientResponse {
   name: string;
   category: Category;
 }
+
 export interface Category {
   id: string;
   name: string;

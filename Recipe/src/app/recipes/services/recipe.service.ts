@@ -23,6 +23,10 @@ export class RecipeService {
     return this.http.post<RecipeRequest>(`http://localhost:8080/recipes`,Recipe);
   }
 
+  putRecipe(recipeId: string, Recipe: RecipeRequest): Observable<RecipeRequest> {
+    return this.http.put<RecipeRequest>(`http://localhost:8080/recipes/${recipeId}`,Recipe);
+  }
+
 }
 
 

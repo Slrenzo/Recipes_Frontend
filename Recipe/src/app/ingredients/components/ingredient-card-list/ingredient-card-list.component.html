@@ -2,12 +2,12 @@
   <div class="filter-container">
     <mat-form-field class="search" appearance="outline">
       <mat-label>Rechercher un ingrédient</mat-label>
-      <input matInput (change)="onChange()" [(ngModel)]="nameSelected">
+      <input maxlength="40" matInput (change)="onChange()" [(ngModel)]="nameSelected">
       <mat-icon matPrefix>search</mat-icon>
     </mat-form-field>
-
     <mat-form-field appearance="outline">
       <mat-label>Filtrer les ingrédients</mat-label>
+      <mat-icon matPrefix>toc</mat-icon>
       <mat-select [(value)]="categorySelected" (valueChange)="onChange()">
         <mat-option></mat-option>
         <mat-option *ngFor="let category of categories" [value]="category.id">

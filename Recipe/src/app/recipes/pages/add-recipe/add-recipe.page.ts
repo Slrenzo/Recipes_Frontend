@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Type} from "../../models/recipe-card.model";
 import {ActivatedRoute} from "@angular/router";
-import {Ingredient} from "../../models/ingredient.model";
 import {Unit} from "../../models/unit.model";
+import {IngredientResponse} from "../../../ingredients/models/ingredient-card.model";
 
 @Component({
   selector: 'app-add-recipe',
@@ -12,7 +12,7 @@ import {Unit} from "../../models/unit.model";
 export class AddRecipePage implements OnInit {
 
   types: Type[] = [] ;
-  ingredients: Ingredient[] = [];
+  ingredients: IngredientResponse[] = [];
   units: Unit[] = [];
 
   constructor(private activatedRoute: ActivatedRoute) { }

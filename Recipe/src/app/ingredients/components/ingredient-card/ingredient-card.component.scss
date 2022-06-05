@@ -25,6 +25,9 @@
     .ingredient-name {
       font-size: 20px;
       font-weight:bold ;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 271px;
     }
 
     .ingredient-category {

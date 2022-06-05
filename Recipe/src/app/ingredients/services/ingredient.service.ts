@@ -36,7 +36,6 @@ export class IngredientCardsService {
 
   putIngredient(ingredientId: string, Ingredient: IngredientPutRequest): Observable<IngredientPutRequest> {
     return this.http.put<IngredientPutRequest>(`http://localhost:8080/ingredients/${ingredientId}`,Ingredient);
-
   }
 
   postIngredient(Ingredient: IngredientPostRequest): Observable<IngredientPostRequest> {

@@ -1,15 +1,17 @@
 <div class="modify-ingredient">
   <div class="title-box">
     <span class="title">Modifier un ingrédient</span>
-    <span class="material-symbols-outlined" (click)="onDelete()">delete</span>
+    <span class="delete material-symbols-outlined" (click)="onDelete()">delete</span>
   </div>
   <div class="ingredient-box">
     <div class="ingredient-img-container">
       <span class="subtitle">Image</span>
       <div class="ingredient-img">
-        <img [src]="ingredient.image" alt="{{ingredient.name}}">
+        <label for="file-input">
+          <img [src]="ingredient.image" alt="{{ingredient.name}}"/>
+        </label>
+        <input id="file-input" type="file" (change)="onFileUpload($event)" />
       </div>
-      <input type="file" (change)="onFileUpload($event)">
     </div>
     <div class="ingredient-info-box">
       <span class="subtitle">Informations</span>
@@ -19,6 +21,7 @@
       </mat-form-field>
       <mat-form-field class="field" appearance="outline">
         <mat-label>Catégorie</mat-label>
+        <mat-icon matPrefix>toc</mat-icon>
         <mat-select [(ngModel)]="ingredient.category.id">
           <mat-option *ngFor="let category of categories" [value]="category.id">
             {{ category.name}}
@@ -26,7 +29,6 @@
         </mat-select>
       </mat-form-field>
     </div>
-
   </div>
   <div class="button-box">
     <button class="cancel-button" routerLink="/ingredients">Annuler</button>

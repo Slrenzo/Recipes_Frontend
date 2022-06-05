@@ -37,7 +37,9 @@ const routes: Routes = [
     component: ModifyRecipePage,
     resolve: {
       recipe: SingleRecipesResolver,
-      units: UnitsResolver
+      units: UnitsResolver,
+      types: TypesResolver,
+      ingredients: IngredientsResolver
     }
   }
 ];
