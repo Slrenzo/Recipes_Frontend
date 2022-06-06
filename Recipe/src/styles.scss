@@ -55,6 +55,9 @@ body {
   width: 380px;
 }
 
+button[disabled] {
+  background: gray!important;
+}
 button {
   width: 120px;
   height: 42px;
@@ -65,10 +68,18 @@ button {
   border: none;
   cursor: pointer;
 
+
+
   &.confirm-button {
     background: #243569;
     color: white;
     justify-content: center;
+    transition-duration: 0.1s;
+
+    &:hover {
+      background: #363D8D;
+      transition-duration: 0.1s;
+    }
   }
 
   &.delete-button {
@@ -82,6 +93,13 @@ button {
     background: none;
     border: solid 2px #243569;
     justify-content: center;
+    transition-duration: 0.1s;
+
+    &:hover {
+      background: #243569;
+      color: white;
+      transition-duration: 0.1s;
+    }
   }
   &.modify-button {
     background: #243569;
@@ -137,3 +155,6 @@ button {
   justify-content: space-between;
   width: 100%;
 }
+
+
+

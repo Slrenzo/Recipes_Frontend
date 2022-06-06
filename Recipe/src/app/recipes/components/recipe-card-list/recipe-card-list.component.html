@@ -5,7 +5,7 @@
       <input matInput maxlength="50" type="search" (change)="onChange()" [(ngModel)]="nameSelected">
       <mat-icon matPrefix>search</mat-icon>
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" >
       <mat-label>Filtrer les recettes</mat-label>
       <mat-icon matPrefix>toc</mat-icon>
       <mat-select [(value)]="typeSelected" (valueChange)="onChange()">
@@ -17,7 +17,7 @@
     </mat-form-field>
   </div>
 
-  <div class="add-recipe-card" routerLink="add">
+  <div matRipple matRippleColor="#b5b5b530" class="add-recipe-card" routerLink="add">
     <div class="add-recipe-header">
       <span class="material-symbols-rounded">add_circle</span>
     </div>

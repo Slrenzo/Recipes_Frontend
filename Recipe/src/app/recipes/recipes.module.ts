@@ -26,6 +26,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import { IngredientsFormComponent } from './components/ingredients-form/ingredients-form.component';
 import { StepsFormComponent } from './components/steps-form/steps-form.component';
+import {MatRippleModule} from "@angular/material/core";
 @NgModule({
   declarations: [
     RecipeListPage,
@@ -49,19 +50,20 @@ import { StepsFormComponent } from './components/steps-form/steps-form.component
   exports: [
     RecipeCardComponent
   ],
-  imports: [
-    CommonModule,
-    RecipesRoutingModule,
-    SharedModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatSelectModule,
-    MatIconModule,
-    ReactiveFormsModule,
-    MatExpansionModule,
-    MatAutocompleteModule,
-  ]
+    imports: [
+        CommonModule,
+        RecipesRoutingModule,
+        SharedModule,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        MatSelectModule,
+        MatIconModule,
+        ReactiveFormsModule,
+        MatExpansionModule,
+        MatAutocompleteModule,
+        MatRippleModule,
+    ]
 })
 
 export class RecipesModule { }

@@ -16,6 +16,7 @@ import {AddIngredientPage} from './pages/add-ingredient/add-ingredient.page';
 import {AddIngredientListComponent} from './components/add-ingredient-list/add-ingredient-list.component';
 import {ModifyIngredientListComponent} from './components/modify-ingredient-list/modify-ingredient-list.component';
 import {ModifyIngredientPage} from './pages/modify-ingredient/modify-ingredient.page';
+import {MatRippleModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -27,18 +28,19 @@ import {ModifyIngredientPage} from './pages/modify-ingredient/modify-ingredient.
     ModifyIngredientListComponent,
     ModifyIngredientPage
   ],
-  imports: [
-    CommonModule,
-    IngredientsRoutingModule,
-    MatDialogModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatSelectModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    MatIconModule
-  ],
+    imports: [
+        CommonModule,
+        IngredientsRoutingModule,
+        MatDialogModule,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        MatSelectModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        MatIconModule,
+        MatRippleModule
+    ],
   entryComponents: [
     DialogDeleteComponent
   ]
