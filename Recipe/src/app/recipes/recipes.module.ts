@@ -24,6 +24,8 @@ import { ModifyRecipeListComponent } from './components/modify-recipe-list/modif
 import { AddRecipeListComponent } from './components/add-recipe-list/add-recipe-list.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { IngredientsFormComponent } from './components/ingredients-form/ingredients-form.component';
+import { StepsFormComponent } from './components/steps-form/steps-form.component';
 @NgModule({
   declarations: [
     RecipeListPage,
@@ -40,7 +42,9 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     ModifyRecipePage,
     AddRecipePage,
     ModifyRecipeListComponent,
-    AddRecipeListComponent
+    AddRecipeListComponent,
+    IngredientsFormComponent,
+    StepsFormComponent
   ],
   exports: [
     RecipeCardComponent

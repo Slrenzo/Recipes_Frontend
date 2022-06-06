@@ -1,0 +1,29 @@
+<form class="steps-part" [formGroup]="stepForm">
+  <span class="subtitle">Étapes</span>
+  <button class="add-step" (click)="addItemsStep()">
+    <span>Ajouter des étapes</span>
+    <span class="material-symbols-outlined">add</span>
+  </button>
+  <div class="steps-container" formArrayName="addStep">
+    <div *ngFor="let step of addStep.controls; let i = index">
+      <div [formGroup]="getFormGroup(step)">
+        <mat-accordion>
+          <mat-expansion-panel class="panel" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="step-panel-title">
+                  <span>Étape {{i + 1}}</span>
+                  <span class="material-symbols-outlined" (click)="removeStep(i)">delete</span>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-form-field appearance="outline">
+              <mat-label>Description</mat-label>
+              <textarea formControlName="descr" matInput required></textarea>
+            </mat-form-field>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Recipe} from "../../models/recipe-card.model";
 import {Router} from "@angular/router";
 
