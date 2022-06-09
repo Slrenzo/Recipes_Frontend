@@ -6,6 +6,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {SnackBarService} from "../../../snack-bar.service";
 import {ImageService} from "../../../image.service";
 import {DialogDeleteComponent} from "../../../shared/components/dialog-delete/dialog-delete.component";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-modify-ingredient-list',
@@ -16,10 +17,12 @@ export class ModifyIngredientListComponent implements OnInit {
 
   @Input() categories: Category[] = []
   @Input() ingredient!: IngredientResponse;
+  ingredientForm!: FormGroup;
 
   constructor(private ingredientCardsService: IngredientCardsService,
               private router: Router,
               private route: ActivatedRoute,
+              private formBuilder: FormBuilder,
               private dialogDelete: MatDialog,
               private snackBarService: SnackBarService,
               private imageService: ImageService) { }
@@ -30,8 +33,8 @@ export class ModifyIngredientListComponent implements OnInit {
       {
         image : ingredient.image,
         id:ingredient.id,
-        name:ingredient.name,
-        categoryId:ingredient.category.id
+        name:this.ingredientForm.value.name,
+        categoryId:this.ingredientForm.value.categoryId
       }).subscribe({
       next: () => {
         this.snackBarService.openSnackBar('Modification réussie.');
@@ -59,7 +62,12 @@ export class ModifyIngredientListComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.ingredientForm = this.formBuilder.group({
+      name: this.ingredient.name,
+      categoryId: this.ingredient.category.id
+    });
+  }
 
   onFileUpload(event: any) {
     const file = event.target.files[0];

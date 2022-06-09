@@ -39,8 +39,13 @@
       flex-direction: column;
       gap: 10px;
 
-      .field {
-        width: 300px;
+      form {
+        display: flex;
+        flex-direction: column;
+
+        .field {
+          width: 300px;
+        }
       }
     }
   }
